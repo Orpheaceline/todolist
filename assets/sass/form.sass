@@ -1,0 +1,55 @@
+//--------------------------------//
+//------------- Form -------------//
+//--------------------------------//
+
+
+label
+  display: block
+  margin-bottom: 5px
+  color: $textVioletDark
+input
+  margin-bottom: 8px
+
+input[type=text], input[type=password], input[type=email], input[type=name]
+  padding: 10px 15px
+  text-align: center
+  border: 1px solid $borderViolet
+  box-shadow: none
+  color: $textViolet
+  +border-radius($radius-md)
+  &:focus, &:active
+    outline: none
+    border-color: $borderVioletMedium
+
+::placeholder /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $textVioletLight
+  font-style: italic
+  font-size: 14px
+  opacity: 1
+
+::-ms-input-placeholder /* Microsoft Edge */
+  color: $textVioletLight
+  font-style: italic
+  font-size: 14px
+
+.fake-check
+  width: 100%
+  cursor: pointer
+  visibility: hidden
+  outline: none !important
+  -webkit-tap-highlight-color: rgba(0,0,0,0) !important
+  &:after
+    visibility: visible
+    content: ""
+    width: 28px
+    height: 28px
+    display: block
+    border: 1px solid $borderViolet
+    +border-radius($radius-big)
+.completed .fake-check:after
+  content: "\f00c"
+  border-color: $borderVioletMedium
+  color: $borderVioletDark
+  line-height: 19px
+  +center
+  +fa(15px)

@@ -1,0 +1,133 @@
+//---------------------------//
+//---------- Flex -----------//
+//---------------------------//
+$sizes: (xxs:$pixel-xxs, xs:$pixel-xs, sm:$pixel-sm, md:$pixel-md, lg:$pixel-lg, xl:$pixel-xl, xxl:$pixel-xxl)
+$breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md: $breakpoint-md, sm: $breakpoint-sm, xs: $breakpoint-xs)
+
+.flex
+  +display-flex
+
+  /* Grid */
+  &[class*='all-']
+    +space-mediaqueries
+  +flex-grid(all, 0)
+
+  @each $size, $pixel in $sizes
+    &.space-#{$size}
+      +flex-grid(all, $pixel)
+
+  @each $breakpointSize, $breakpointName in $breakpoints
+    +responsive(max, $breakpointName)
+      &[class*='#{$breakpointSize}-']
+        +space-mediaqueries
+
+      &.flex-responsive-hide
+        @for $i from 1 through 8
+          &[class*='#{$breakpointSize}-#{$i}']
+            > *:nth-child(n+#{$i+1})
+              display: none !important
+
+      +flex-grid($breakpointSize, 0)
+
+      @each $size, $pixel in $sizes
+        &.space-#{$size}
+          +flex-grid($breakpointSize, $pixel)
+
+    +responsive(max, $breakpoint-sm)
+      &.flex-mobile-hide
+        @for $i from 1 through 8
+          &[class*='sm-#{$i}']
+            > *:nth-child(n+#{$i+1}):not(.see-more)
+              display: none !important
+
+  /* Space */
+  @each $size, $pixel in $sizes
+    &.space-#{$size} > *:not(:last-child)
+      margin-right: $pixel
+
+
+  /* Alignment */
+  &.v-middle
+    align-items: center
+  &.h-middle
+    justify-content: center
+  &.v-start
+    align-items: flex-start
+  &.v-end
+    align-items: flex-end
+  &.h-end
+    justify-content: flex-end
+  &.fill-space > *
+    min-width: auto
+    flex: 0 0 auto
+    &:not(:first-child):not(:last-child)
+      margin: auto
+    &:first-child
+      margin-right: auto
+    &:last-child
+      margin-left: auto
+  > .align-left
+    margin-right: auto
+  > .align-center
+    margin-left: auto
+    margin-right: auto
+  > .align-right
+    margin-left: auto
+  > .align-top
+    margin-bottom: auto
+  > .align-bottom
+    margin-top: auto
+
+
+  /* No columns */
+  &.no-columns
+    width: 100%
+    height: 100%
+    flex-flow: column
+
+  /* Size */
+  > .main
+    +flex(1)
+  > .full-width
+    max-width: 100% !important
+    width: 100% !important
+    +flex(100% !important)
+
+  /* Flow */
+  &.flex-wrap
+    flex-wrap: wrap
+  &.no-wrap
+    flex-wrap: nowrap
+
+  /* Inverse direction */
+  &.inverse-column
+    flex-direction: row-reverse
+
+
+// ---------- Inline Flex ---------- //
+.display-inline-flex
+  width: 100%
+  height: 100%
+  display: inline-flex
+  flex-direction: column
+  .display-flex
+    width: 100%
+    flex-direction: column
+    display: inline-flex
+    +flex(1)
+    > *
+      height: 100%
+      &.align-bottom
+        height: auto
+        padding-top: 8px
+        +responsive(min, $breakpoint-lg)
+          padding-top: 29px
+          &.padding-top-sm
+            padding-top: 8px
+    .display-table
+      +valign-middle
+      position: relative
+
+/* No flex */
+.no-flex
+  flex: none
