@@ -14,7 +14,7 @@
               <button type="submit" class="btn-violet display-block">
                 S'inscrire
               </button>
-              <router-link class="m-top-xs" to="/">Retour</router-link>
+              <router-link to="/" class="m-top-xs">Retour</router-link>
             </div>
           </form>
         </div>
@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 export default {
   data () {
@@ -48,7 +49,7 @@ export default {
               displayName: this.form.name
             })
             .then(data => {
-              this.$router.replace({ name: 'home' })
+              this.$router.replace({ name: 'Home' })
             })
         })
         .catch(err => {

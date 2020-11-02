@@ -1,11 +1,17 @@
 <template>
   <nav class="navbar" v-if="user.loggedIn">
     <div class="container">
-      <ul class="list-style-none flex space-xxs h-middle">
-          <li class="nav-item">Connecté en tant que <strong>{{ user.data.displayName }}</strong></li>
-          <li class="nav-item">
-            <a href="" class="nav-link" @click.prevent="signOut">(Se déconnecter)</a>
-          </li>
+      <ul class="nls flex space-xxs h-middle v-middle">
+        <li>
+          <router-link to="/" class="m-top-xs">Accueil</router-link>
+        </li>
+        <li class="border-left-violet-med m-left-xs p-left-sm">
+          <router-link to="manage-list" class="m-top-xs">Modifier les listes</router-link>
+        </li>
+        <li class="border-left-violet-med m-left-xs p-left-sm">Connecté en tant que <strong>{{ user.data.displayName }}</strong></li>
+        <li class="border-left-violet-med m-left-xs p-left-sm">
+          <a href="" class="nav-link" @click.prevent="signOut"><i class="fa fa-sign-out-alt"></i></a>
+        </li>
       </ul>
     </div>
   </nav>
@@ -13,12 +19,12 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 export default {
   computed: {
     ...mapGetters({
-      // map `this.user` to `this.$store.getters.user`
       user: 'user'
     })
   },

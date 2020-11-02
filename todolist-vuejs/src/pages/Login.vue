@@ -13,7 +13,7 @@
               <button type="submit" class="btn-violet display-block">
                 Se connecter
               </button>
-              <router-link class="m-top-xs" to="/">Retour</router-link>
+              <router-link to="/" class="m-top-xs">Retour</router-link>
             </div>
           </form>
         </div>
@@ -27,7 +27,8 @@
 </style>
 
 <script>
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/auth'
 
 export default {
   data () {

@@ -28,6 +28,11 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
+      {
         test: /\.css$/,
         use: [
           'vue-style-loader',

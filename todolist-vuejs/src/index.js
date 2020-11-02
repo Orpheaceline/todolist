@@ -2,14 +2,18 @@ import Vue from 'vue'
 import VueTouch from 'vue-touch'
 import App from './App.vue'
 import router from './router'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 import store from './store'
 
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
-Vue.use(VueTouch)
+import moment from 'moment'
+Object.defineProperty(Vue.prototype, '$moment', { value: moment })
+moment.locale('fr')
 
+Vue.use(VueTouch)
 Vue.config.productionTip = false
 
 const firebaseConfig = {
@@ -24,6 +28,7 @@ const firebaseConfig = {
 }
 
 firebase.initializeApp(firebaseConfig)
+export const db = firebase.firestore()
 
 firebase.auth().onAuthStateChanged(user => {
   store.dispatch('fetchUser', user)

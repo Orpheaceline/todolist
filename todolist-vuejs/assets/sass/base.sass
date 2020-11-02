@@ -1,4 +1,4 @@
-@import '~@fortawesome/fontawesome-free/css/all.min.css'
+@import '~@fortawesome/fontawesome-free/css/regular.min.css'
 @import 'flex'
 
 //--------------------------------//
@@ -46,29 +46,65 @@ h1, h2, h3
   font-weight: 500
   color: $textViolet
   text-align: center
+  margin: 0
 h1
   font-size: 30px
 h2
   font-size: 25px
 
+.font-xxs
+  font-size: $font-xxs
+.font-xs
+  font-size: $font-xs
+.font-sm
+  font-size: $font-sm
+.font-md
+  font-size: $font-md
+.font-lg
+  font-size: $font-lg
+.font-xl
+  font-size: $font-xl
+.font-xxl
+  font-size: $font-xxl
+.font-xxxl
+  font-size: $font-xxxl
+.font-big
+  font-size: $font-big
+
 /* ---- List ---- */
-.list-style-none
+.nls
   margin: 0
   padding: 0
   list-style: none
+
+.menu-tab
+  a
+    text-decoration: none
+    &.active
+      border-color: #ea9fb4
+      background: #fff5f8
+      h2
+        color: #ea7294
+      .icon
+        background: #ffdada
+        color: #ea7294
 
 /* ---- Colors ---- */
 .grey
   color: $textGrey
 
 
-/* ---- Colors ---- */
+/* ---- Blocs ---- */
 .bloc-grey
   padding: 20px
   background: #f6f5f7
   border: 1px solid #ece9ef
   +border-radius($radius-md)
-
+.bloc-violet
+  padding: 20px
+  background: #f6f5f7
+  border: 1px solid rgba($borderVioletMedium, 0.4)
+  +border-radius($radius-md)
 
 /* ---- Buttons ---- */
 button, .button, *[class*='btn-']
@@ -111,9 +147,35 @@ button, .button, *[class*='btn-']
     &:focus, &:active, &:hover
       +gradient(vertical, $borderVioletDark, $borderVioletMedium)
 
+
+// -------------- Border -------------- //
+@each $color, $variable in $borderColor
+  .border-#{$color}
+    border: 1px solid $variable
+  @each $direction in $directions
+    /* ex: border-top-grey */
+    .border-#{$direction}-#{$color}
+      border-#{$direction}: 1px solid $variable
+    /* ex: no-border-top */
+    .no-border-#{$direction}
+      border-#{$direction}: 0
+
+.no-border
+  border: 0
+
+@each $breakpointSize, $breakpointName in $breakpoints
+  +responsive(max, $breakpointName)
+    @each $direction in $directions
+      .no-border-#{$direction}-#{$breakpointSize}
+        border-#{$direction}: 0
+
+
 /* ---- Margin & Padding ---- */
-$sizes: (xxs:$pixel-xxs, xs:$pixel-xs, sm:$pixel-sm, md:$pixel-md, lg:$pixel-lg, xl:$pixel-xl, xxl:$pixel-xxl)
-$directions: ('top', 'right', 'bottom', 'left')
+
+.no-m
+  margin: 0
+.no-p
+  padding: 0
 
 @each $size, $pixel in $sizes
   .m-#{$size}
@@ -135,13 +197,28 @@ $directions: ('top', 'right', 'bottom', 'left')
 .display-block
   display: block
 
-
 /* ---------- Alignment ---------- */
 .text-left
   text-align: left
+.text-center
+  text-align: center
 
 /* ---------- Navigation ---------- */
 .navbar
   padding: 10px
   background: $borderViolet
   color: $borderVioletDark
+
+/* ---------- Label ---------- */
+*[class*='label-']
+  display: inline-block
+  vertical-align: middle
+  padding: 2px 8px
+  font-size: 10px
+  color: white
+  +border-radius($radius-md)
+
+.label-blue
+  background: #7d7dde
+.label-red
+  background: #ff2222

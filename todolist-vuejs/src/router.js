@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Home from 'pages/Home'
 import Login from 'pages/Login'
 import Register from 'components/Register'
-import Dashboard from 'components/Dashboard'
+import ManageList from 'pages/ManageList'
 
 Vue.use(Router)
 
@@ -18,13 +18,13 @@ const router = new Router({
     },
     {
       path: '/register',
-      name: 'Register',
+      name: 'register',
       component: Register
     },
     {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: Dashboard
+      path: '/manage-list',
+      name: 'manage-list',
+      component: ManageList
     },
     {
       path: '/',

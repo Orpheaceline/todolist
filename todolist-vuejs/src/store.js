@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { db } from './index'
 
 Vue.use(Vuex)
 
@@ -8,33 +9,72 @@ export default new Vuex.Store({
     user: {
       loggedIn: false,
       data: null
-    }
+    },
+    lists: [],
+    todos: []
   },
   getters: {
     user (state) {
       return state.user
+    },
+    getLists (state) {
+      return state.lists
+    },
+    getTodos (state) {
+      return state.todos
     }
   },
   mutations: {
-    SET_LOGGED_IN (state, value) {
+    setLoggedIn (state, value) {
       state.user.loggedIn = value
     },
-    SET_USER (state, data) {
+    setUser (state, data) {
       state.user.data = data
+    },
+    async setLists (state) {
+      let lists = []
+      await db.collection('todolists').orderBy('createdAt').onSnapshot((snapshot) => {
+        lists = []
+        snapshot.forEach((doc) => {
+          lists.push({
+            id: doc.id,
+            ...doc.data()
+          })
+        })
+        state.lists = lists
+      })
+    },
+    async setTodos (state) {
+      let todos = []
+      await db.collection('todos').onSnapshot((snapshot) => {
+        todos = []
+        snapshot.forEach((doc) => {
+          const todo = doc.data()
+          todo.id = doc.id
+          todos.push(todo)
+        })
+        state.todos = todos
+      })
     }
   },
   actions: {
     fetchUser ({ commit }, user) {
-      commit('SET_LOGGED_IN', user !== null)
+      commit('setLoggedIn', user !== null)
       if (user) {
-        commit('SET_USER', {
+        commit('setUser', {
           displayName: user.displayName,
           email: user.email,
           uid: user.uid
         })
       } else {
-        commit('SET_USER', null)
+        commit('SetUser', null)
       }
+    },
+    setLists (context) {
+      context.commit('setLists')
+    },
+    setTodos (context) {
+      context.commit('setTodos')
     }
   }
 })

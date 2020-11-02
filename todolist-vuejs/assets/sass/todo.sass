@@ -4,11 +4,33 @@
 //------------- Main -------------//
 //--------------------------------//
 
-#MyTodoListApp
+.todolist
   width: $container
   max-width: 100%
   margin: auto
   text-align: center
+  input
+    width: 100%
+    margin: 0
+  .vdp-datepicker
+    max-width: 100px
+    flex: 0 0 100px
+    position: relative
+    &.empty
+      max-width: 50px
+      flex: 0 0 50px
+      input
+        background: none
+      &:after
+        content: '\f073'
+        color: $textViolet
+        +halign-middle
+        top: 11px
+        z-index: -1
+        +fa(15px)
+    .vdp-datepicker__calendar
+      right: 0
+
   .delete-all-done
     margin-bottom: 10px
     padding-left: 30px
@@ -31,7 +53,7 @@
       bottom: -2px
       +fa(13px)
       +rotate(180deg)
-  .todo-list
+  .task-list
     margin: 10px 0 0
     list-style: none
     .todo
@@ -60,3 +82,17 @@
       &.completed label
         text-decoration: line-through
         color: $textGrey
+.list-todo
+  .icon
+    width: 100px
+    padding: 25px
+    color: $textViolet
+    background: $borderViolet
+    border-right: 1px solid rgba($borderVioletMedium, 0.4)
+    +border-radius($radius-md 0 0 $radius-md)
+    +center
+    &.small
+      width: 50px
+      padding: 10px
+    + .main
+      align-self: center

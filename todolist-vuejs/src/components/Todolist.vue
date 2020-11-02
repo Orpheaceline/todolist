@@ -1,62 +1,34 @@
 <template>
-  <section v-if="user.loggedIn" class="todoapp">
-    <header class="header">
-      <input id="new_todo" v-model="todo.title" type="text" class="new-todo" placeholder="Ajouter une tache" @keyup.enter="addTodo">
-    </header>
-    <div class="content">
-      <ul class="list-style-none todo-list">
-        <li v-for="todo in filteredTodos" :key="todo.id" class="todo" :class="{completed: todo.isCompleted}">
-          <div class="view">
-            <div class="flex space-sm">
-              <div class="input-checkbox">
-                <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
-              </div>
-              <div class="todo-infos main">
-                <v-touch @press="editTodo(todo, $event)" @swipeleft="deleteToDo(todo.id)">
-                  <div v-show="isEditing != todo.id">
-                    <label>{{ todo.title }}</label>
-                    <div class="todo-info">
-                      <strong>{{ todo.user.data.displayName }}</strong> -
-                      <span>{{ todo.createdAt }}</span>
-                    </div>
-                  </div>
-                </v-touch>
-                <v-touch @press="cancelEditTodo(todo, $event)">
-                  <input v-model="todo.title" v-show="isEditing === todo.id" @keyup.enter="saveTodo(todo.id, $event)" type="text">
-                </v-touch>
-              </div>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="bottom-content m-top-sm">
-      <div class="delete-all-done text-left">
-        <a href="" @click="clearCompleted" v-show="type === 'completed' || type === 'all'">
-          <i class="fa fa-level-down-alt"></i>
-          Supprimer les taches finies
-        </a>
-      </div>
-      <div class="flex h-end v-middle m-top-md">
-        <span class="todo-count grey align-left"><strong>{{ activeTodos.length }}</strong> tâches à faire</span>
-        <ul class="list-style-none filters flex space-xs v-middle" v-show="completedTodos.length">
-          <li><a href="#" class="btn-grey btn-xs" :class="{'btn-violet': type === ''}" @click="setFilterType('')">A faire</a></li>
-          <li><a href="#" class="btn-grey btn-xs" :class="{'btn-violet': type === 'completed'}" @click="setFilterType('completed')">Faites</a></li>
-          <li><a href="#" class="btn-grey btn-xs" :class="{'btn-violet': type === 'all'}" @click="setFilterType('all')">Toutes</a></li>
+  <div>
+    <section v-if="user.loggedIn" class="todoapp">
+      <header class="header flex space-xs">
+        <div class="main">
+          <input :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
+        </div>
+        <Datepicker ref="datePicker" v-model="todo.dueDate" :language="fr" format="dd/MM/yyyy" :class="{empty: !todo.dueDate}" @closed="addTodo"></Datepicker>
+      </header>
+      <div class="content">
+        <div class="flex v-middle m-top-sm m-bottom-sm">
+          <span class="align-left grey">Il y a <strong>{{ activeTodos.length }}</strong> tâches à faire</span>
+          <Dropdown id="menu-toggle" name="Dropdown">
+            <slot>
+              <li><a href="#" :class="{'active': type === ''}" @click="setFilterType('')">Afficher les tâches à faire ({{ activeTodos.length }})</a></li>
+              <li><a href="#" :class="{'active': type === 'completed'}" @click="setFilterType('completed')">Afficher les tâches finies ({{ completedTodos.length }})</a></li>
+              <li><a href="#" :class="{'active': type === 'all'}" @click="setFilterType('all')">Afficher toutes les tâches ({{ AllTodos.length }})</a></li>
+              <li class="border-top-grey m-top-sm">
+                <a href="" v-on:click.stop.prevent="clearCompleted">
+                  Supprimer les taches finies ({{ completedTodos.length }})
+                </a>
+              </li>
+            </slot>
+          </Dropdown>
+        </div>
+        <ul class="nls task-list">
+          <TodoTask v-for="todo in filteredTodos" :key="todo.id" :todo="todo" v-if="todo.list === list.id"/>
         </ul>
       </div>
-    </div>
-  </section>
-  <section v-else>
-    <div class="flex all-2 space-xs">
-      <div>
-        <router-link to="login" class="button display-block">Se Connecter</router-link>
-      </div>
-      <div>
-        <router-link to="register" class="button display-block">S'inscrire</router-link>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 </template>
 
 <style lang="sass">
@@ -64,34 +36,53 @@
 </style>
 
 <script>
-import firebase from 'firebase'
 import { mapGetters } from 'vuex'
 import _ from 'lodash'
+import Datepicker from 'vuejs-datepicker'
+import { fr } from 'vuejs-datepicker/dist/locale'
+import { db } from '../index'
+
+import Dropdown from 'components/Dropdown'
+import TodoTask from "./TodoTask"
 
 export default {
+  name: 'Todolist',
+  components: {
+    TodoTask,
+    Datepicker,
+    Dropdown
+  },
+  props: {
+    list: Object
+  },
   data () {
     return {
-      todo: {
-        title: ''
-      },
       todos: [],
-      type: '',
-      isEditing: ''
+      todo: {
+        name: null
+      },
+      type: null,
+      showTopMenu: false,
+      today: this.$moment().format(),
+      fr: fr
     }
   },
   computed: {
-    ...mapGetters({
-      // map `this.user` to `this.$store.getters.user`
-      user: 'user'
-    }),
+    ...mapGetters([
+      'user',
+      'getTodos'
+    ]),
+    AllTodos () {
+      return this.getTodos.filter(todo => todo.list === this.list.id)
+    },
     activeTodos () {
-      return this.todos.filter(t => !t.isCompleted)
+      return this.getTodos.filter(todo => todo.isCompleted === false && todo.list === this.list.id)
     },
     completedTodos () {
-      return this.todos.filter(t => t.isCompleted)
+      return this.getTodos.filter(todo => todo.isCompleted === true && todo.list === this.list.id)
     },
     filteredTodos () {
-      return _.orderBy(this.todos.filter(todo => {
+      return _.orderBy(this.getTodos.filter(todo => {
         switch (this.type) {
           case 'all':
             return true
@@ -103,74 +94,33 @@ export default {
       }), ['isCompleted'])
     }
   },
-  created () {
-    this.getTodos()
+  created: function () {
+    this.$store.dispatch('setTodos', this.list.id)
   },
   methods: {
     addTodo () {
-      firebase
-        .firestore()
-        .collection('todos')
-        .add({
-          title: this.todo.title,
-          createdAt: new Date(firebase.firestore.Timestamp.now().seconds * 1000).toLocaleString(),
-          isCompleted: false,
-          user: this.user
-        })
-    },
-    async getTodos () {
-      const todosRef = await firebase.firestore().collection('todos').orderBy('createdAt', 'desc')
-      todosRef.onSnapshot(snap => {
-        this.todos = []
-        snap.forEach(doc => {
-          const todo = doc.data()
-          todo.id = doc.id
-          this.todos.push(todo)
-          this.todo.title = ''
-        })
+      db.collection('todos').add({
+        list: this.list.id,
+        name: this.todo.name,
+        createdAt: this.$moment().format(),
+        isCompleted: false,
+        dueDate: this.todo.dueDate ? this.$moment(this.todo.dueDate).format() : null,
+        user: this.user
       })
-    },
-    updateTodoItem (docId, e) {
-      const isChecked = e.target.checked
-      firebase
-        .firestore()
-        .collection('todos')
-        .doc(docId)
-        .update({
-          isCompleted: isChecked
-        })
-    },
-    editTodo (todo, e) {
-      e.target.closest('.todo').classList.toggle('is-editing')
-      this.isEditing = todo.id
-    },
-    saveTodo (docId, e) {
-      firebase
-        .firestore()
-        .collection('todos')
-        .doc(docId)
-        .update({
-          title: e.target.value
-        })
-        .then(_ => {
-          this.isEditing = ''
-        })
-    },
-    cancelEditTodo () {
-      this.isEditing = null
-    },
-    deleteToDo (docId) {
-      firebase
-        .firestore()
-        .collection('todos')
-        .doc(docId)
-        .delete()
-    },
-    clearCompleted () {
-      this.todos = this.activeTodos
+      this.todo.name = ''
+      this.$refs.datePicker.clearDate()
     },
     setFilterType (type) {
       this.type = type
+    },
+    clearCompleted () {
+      this.getTodos.forEach(todo => {
+        if (todo.isCompleted) {
+          db.collection('todos')
+            .doc(todo.id)
+            .delete()
+        }
+      })
     }
   }
 }

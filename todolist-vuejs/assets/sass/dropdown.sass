@@ -1,0 +1,41 @@
+/* ---------- Dropdown ---------- */
+.dropdown
+  position: relative
+  .menu-link-icon
+    width: 25px
+    height: 25px
+    border: 1px solid $borderViolet
+    text-decoration: none
+    font-size: 13px
+    +border-radius($radius-big)
+    +center
+  .menu
+    position: absolute
+    top: 100%
+    right: -20px
+    width: 225px
+    margin-top: 10px
+    padding: 15px
+    background: white
+    box-shadow: 0 0 5px $borderGrey
+    border: 1px solid $borderGrey
+    +border-radius($radius-md)
+    &:before
+      content: ""
+      position: absolute
+      bottom: 100%
+      right: 26px
+      margin-bottom: -5px
+      padding: 5px
+      border: solid $borderGrey
+      border-width: 0 1px 1px 0
+      background: white
+      +rotate(-135deg)
+    li
+      color: $textViolet
+      + li
+        padding-top: 8px
+      &.disabled
+        cursor: not-allowed
+        pointer-events: none
+        opacity: 0.5
