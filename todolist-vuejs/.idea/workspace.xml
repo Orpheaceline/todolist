@@ -31,7 +31,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editorconfig.notification" value="null" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/sass" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/fonts" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -44,17 +44,18 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\todolist-vuejs\assets\sass" />
-      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
-      <recent name="C:\wamp64\www\todolist-vuejs\src\components\Home" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
       <recent name="C:\wamp64\www\todolist-vuejs\static" />
       <recent name="C:\wamp64\www\todolist-vuejs\static\images" />
       <recent name="C:\wamp64\www\todolist-vuejs" />
       <recent name="C:\wamp64\www\todolist-vuejs\public" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\todolist-vuejs\assets\fonts" />
+      <recent name="C:\wamp64\www\todolist-vuejs\assets\sass" />
+      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
+      <recent name="C:\wamp64\www\todolist-vuejs\src\components\Home" />
     </key>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
@@ -75,7 +76,8 @@
       <workItem from="1603892277135" duration="13760000" />
       <workItem from="1603984311693" duration="16000" />
       <workItem from="1604137402089" duration="71775000" />
-      <workItem from="1604303810751" duration="28512000" />
+      <workItem from="1604303810751" duration="28584000" />
+      <workItem from="1604332834081" duration="4844000" />
     </task>
     <servers />
   </component>
@@ -92,10 +94,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="761" y="27" width="1024" height="985" key="#HTML/0.0.1920.1040@0.0.1920.1040" timestamp="1604246046451" />
-    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603040486277">
+    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604334960488">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603040486277" />
+    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604334960488" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604337521176">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
     <state x="675" y="64" key="SettingsEditor" timestamp="1604329044989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -106,29 +113,30 @@
     </state>
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603901394509" />
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1604273712793" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1603048156734">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604337521176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603048156734" />
-    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604326342153">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
+    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1604334384517">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900841452" />
-    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604326342153" />
-    <state x="404" y="74" width="1362" height="832" key="find.popup" timestamp="1604332517817">
+    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604334384517" />
+    <state x="404" y="74" width="1362" height="832" key="find.popup" timestamp="1604337383502">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603898719087" />
-    <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604332517817" />
+    <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604337383502" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1604306407296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900786408" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604306407296" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604328735133">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604337640269">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603117418230" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604328735133" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604337640269" />
   </component>
 </project>

@@ -8,9 +8,9 @@
         <li class="border-left-violet-med m-left-xs p-left-sm">
           <router-link to="manage-list" class="m-top-xs">Modifier les listes</router-link>
         </li>
-        <li class="border-left-violet-med m-left-xs p-left-sm">Connecté en tant que <strong>{{ user.data.displayName }}</strong></li>
+        <li class="border-left-violet-med m-left-xs p-left-sm">Bienvenue <strong>{{ user.data.displayName }}</strong> !</li>
         <li class="border-left-violet-med m-left-xs p-left-sm">
-          <a href="" class="nav-link" @click.prevent="signOut"><i class="fa fa-sign-out-alt"></i></a>
+          <a href="" class="nav-link" @click.prevent="signOut"><i class="fa fa-sign-out"></i></a>
         </li>
       </ul>
     </div>

@@ -5,7 +5,7 @@
         <div class="main">
           <input :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
         </div>
-        <Datepicker ref="datePicker" v-model="todo.dueDate" :language="fr" format="dd/MM/yyyy" :class="{empty: !todo.dueDate}" @closed="addTodo"></Datepicker>
+        <Datepicker ref="datePicker" v-model="todo.dueDate" :language="fr" format="dd/MM/yyyy" :class="{empty: !todo.dueDate}" @closed="addTodo"/>
       </header>
       <div class="content">
         <div class="flex v-middle m-top-sm m-bottom-sm">

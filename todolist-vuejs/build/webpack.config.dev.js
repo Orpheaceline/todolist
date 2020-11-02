@@ -58,10 +58,12 @@ module.exports = merge(baseConfig, {
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new CopyWebpackPlugin([{
-      from: 'assets/images',
-      to: path.resolve(__dirname, '../dist/images'),
-      toType: 'dir'
-    }])
+    new CopyWebpackPlugin([
+      {
+        from: 'assets/images',
+        to: path.resolve(__dirname, '../dist/images'),
+        toType: 'dir'
+      }
+    ])
   ]
 })

@@ -63,9 +63,6 @@ module.exports = merge(baseConfig, {
         {
           from: 'assets/images',
           to: '../dist/images/[name].[contenthash].[ext]',
-        }, {
-          from: 'node_modules/@fortawesome/fontawesome-free/webfonts',
-          to: '../dist/fonts/[name].[contenthash].[ext]',
         }
     ]),
     new MiniCssExtractPlugin({

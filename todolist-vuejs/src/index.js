@@ -10,6 +10,7 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
 import moment from 'moment'
+
 Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 moment.locale('fr')
 

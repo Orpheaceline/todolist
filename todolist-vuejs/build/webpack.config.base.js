@@ -5,8 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader')
 
-console.log(path.resolve(__dirname, 'src/components'));
-
 module.exports = {
   entry: {
     todo: './src/index.js',
