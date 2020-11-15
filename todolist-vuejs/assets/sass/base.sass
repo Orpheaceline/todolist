@@ -21,7 +21,7 @@ a
 .logo
   width: 100px
   max-width: 100%
-  margin: 30px auto
+  margin: 30px auto 0
   display: block
   background: url('../images/logo.png') no-repeat 0 0
   background-size: 100%
@@ -120,8 +120,10 @@ button, .button, *[class*='btn-']
     outline: none
   &:hover
     border-color: $borderVioletDark
-  &.btn-lg
-    padding: 10px 30px
+  &.btn-md
+    padding: 10px 12px
+  &.btn-sm
+    padding: 5px 10px
   &.btn-sm
     padding: 5px 10px
   &.btn-xs
@@ -142,9 +144,10 @@ button, .button, *[class*='btn-']
     color: white
     border: 1px solid $borderVioletDark
     +gradient(vertical, $borderVioletMedium, $borderVioletDark)
-    +border-radius($radius-md)
     &:focus, &:active, &:hover
       +gradient(vertical, $borderVioletDark, $borderVioletMedium)
+  &.btn-red
+    color: #e02416
 
 
 // -------------- Border -------------- //
@@ -162,10 +165,10 @@ button, .button, *[class*='btn-']
 .no-border
   border: 0
 
-@each $breakpointSize, $breakpointName in $breakpoints
-  +responsive(max, $breakpointName)
+@each $breakpointName, $breakpointSize in $breakpoints
+  +responsive(max, $breakpointSize)
     @each $direction in $directions
-      .no-border-#{$direction}-#{$breakpointSize}
+      .no-border-#{$direction}-#{$breakpointName}
         border-#{$direction}: 0
 
 
@@ -191,6 +194,12 @@ button, .button, *[class*='btn-']
 /* ---- Display ---- */
 .hide
   display: none
+
+@each $breakpointName, $breakpointSize in $breakpoints
+  +responsive(max, $breakpointSize)
+    .hide-#{$breakpointName}
+      display: none
+
 .full-width
   width: 100%
 .display-block

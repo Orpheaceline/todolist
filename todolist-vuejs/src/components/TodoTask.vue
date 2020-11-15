@@ -4,8 +4,8 @@
       <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
     </div>
     <div class="todo-infos main">
-      <v-touch @press="editTodo(todo, $event)" @swipeleft="deleteToDo(todo.id)">
-        <div v-show="isEditing != todo.id">
+      <v-touch @press="editTodo(todo.id)">
+        <div class="line-todo" v-if="!todo.isEditing">
           <label>{{ todo.name }}</label>
           <div class="todo-info flex inline flex-wrap v-middle space-xxs">
             <span>Ajouté par</span>
@@ -19,13 +19,19 @@
           </div>
         </div>
       </v-touch>
-      <input :value="todo.name" v-show="isEditing === todo.id" @blur="cancelEditTodo" @keyup.enter="saveTodo(todo.id, $event)" type="text">
+      <div v-if="todo.isEditing" class="flex space-xxs v-middle">
+        <input ref="newText" :value="todo.name" @keyup.enter="saveTodo(todo.id, $event)" type="text">
+        <a href="#" v-on:click.stop.prevent="saveTodo(todo.id, $event)" class="btn-violet btn-md"><i class="fa fa-check"></i></a>
+        <a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-md"><i class="fa fa-times"></i></a>
+        <a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-md"><i class="fa fa-trash"></i></a>
+      </div>
     </div>
   </li>
 </template>
 
 <script>
 import {db} from "../index";
+import {mapGetters} from "vuex";
 
 export default {
   name: "TodoTask",
@@ -34,9 +40,22 @@ export default {
   },
   data () {
     return {
-      type: null,
-      isEditing: false,
+      type: null
     }
+  },
+  computed: {
+    ...mapGetters([
+      'getTodos'
+    ])
+  },
+  created: function () {
+    this.getTodos.forEach(todo => {
+      db.collection('todos')
+        .doc(todo.id)
+        .update({
+          isEditing: false
+        })
+    })
   },
   methods: {
     moment (date) {
@@ -53,7 +72,7 @@ export default {
         return dueDate.from(this.today)
       }
     },
-    updateTodoItem  (docId, e) {
+    updateTodoItem (docId, e) {
       e.target.closest('.todo').classList.toggle('completed')
       const isChecked = e.target.checked
       setTimeout(() =>
@@ -63,21 +82,38 @@ export default {
             isCompleted: isChecked
           }), 3000)
     },
-    editTodo (todo, e) {
-      this.isEditing = todo.id
+    editTodo: function (docId) {
+      this.getTodos.forEach(todo => {
+        if (todo.id === docId) {
+          db.collection('todos')
+            .doc(docId)
+            .update({
+              isEditing: true
+            })
+        } else {
+          db.collection('todos')
+            .doc(todo.id)
+            .update({
+              isEditing: false
+            })
+        }
+      })
     },
-    saveTodo (docId, e) {
+    saveTodo (docId) {
+      let newText = this.$refs.newText.value
       db.collection('todos')
         .doc(docId)
         .update({
-          name: e.target.value
-        })
-        .then(_ => {
-          this.isEditing = ''
+          name: newText,
+          isEditing: false
         })
     },
-    cancelEditTodo () {
-      this.isEditing = null
+    cancelEditTodo (docId) {
+      db.collection('todos')
+        .doc(docId)
+        .update({
+          isEditing: false
+        })
     },
     deleteToDo (docId) {
       db.collection('todos')

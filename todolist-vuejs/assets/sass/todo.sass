@@ -24,10 +24,10 @@
       &:after
         content: '\f073'
         color: $textViolet
-        +halign-middle
-        top: 11px
         z-index: -1
+        margin-top: -1px
         +fa(15px)
+        +align-middle
     .vdp-datepicker__calendar
       right: 0
 
@@ -57,10 +57,12 @@
     margin: 10px 0 0
     list-style: none
     .todo
+      height: 63px
       border-left: 1px solid $borderViolet
       border-right: 1px solid $borderViolet
       text-align: left
-      padding: 15px
+      padding: 10px
+      +center
       &:first-child
         border-top: 1px solid $borderViolet
         +border-radius($radius-md $radius-md 0 0)
@@ -76,8 +78,8 @@
         word-break: break-word
         +center-v
       .todo-info
-        margin-top: 3px
-        font-size: 10px
+        margin-top: 5px
+        font-size: 11px
         color: $textGrey
       &.completed label
         text-decoration: line-through
@@ -88,9 +90,13 @@
     padding: 25px
     color: $textViolet
     background: $borderViolet
-    border-right: 1px solid rgba($borderVioletMedium, 0.4)
-    +border-radius($radius-md 0 0 $radius-md)
     +center
+    +border-radius($radius-md)
+    +responsive(min, $breakpoint-sm)
+      border-right: 1px solid rgba($borderVioletMedium, 0.4)
+      +border-radius($radius-md 0 0 $radius-md)
+    +responsive(max, $breakpoint-sm)
+      padding: 30px !important
     &.small
       width: 50px
       padding: 10px

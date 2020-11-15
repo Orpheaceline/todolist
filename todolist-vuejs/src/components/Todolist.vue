@@ -104,6 +104,7 @@ export default {
         name: this.todo.name,
         createdAt: this.$moment().format(),
         isCompleted: false,
+        isEditing: false,
         dueDate: this.todo.dueDate ? this.$moment(this.todo.dueDate).format() : null,
         user: this.user
       })
