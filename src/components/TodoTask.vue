@@ -4,26 +4,24 @@
       <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
     </div>
     <div class="todo-infos main">
-      <v-touch @press="editTodo(todo.id)">
-        <div class="line-todo" v-if="!todo.isEditing">
-          <label>{{ todo.name }}</label>
-          <div class="todo-info flex inline flex-wrap v-middle space-xxs">
-            <span>Ajouté par</span>
-            <strong>{{ todo.user.data.displayName }}</strong>
-            <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
-            <div class="flex inline v-middle" v-show="todo.dueDate">
-              <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
-              <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
-              <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
-            </div>
+      <div class="line-todo" :class="{'is-editing': todo.isEditing}">
+        <label class="cursor-pointer" @click="editTodo(todo.id)">{{ todo.name }}</label>
+        <div class="todo-info flex inline flex-wrap v-middle space-xxs">
+          <span>Ajouté par</span>
+          <strong>{{ todo.user.data.displayName }}</strong>
+          <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
+          <div class="flex inline v-middle" v-show="todo.dueDate">
+            <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
+            <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
+            <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
           </div>
         </div>
-      </v-touch>
-      <div v-if="todo.isEditing" class="flex space-xxs v-middle">
+      </div>
+      <div v-if="todo.isEditing" class="editing-form flex space-xxs v-middle">
         <input ref="newText" :value="todo.name" @keyup.enter="saveTodo(todo.id, $event)" type="text">
-        <a href="#" v-on:click.stop.prevent="saveTodo(todo.id, $event)" class="btn-violet btn-md"><i class="fa fa-check"></i></a>
-        <a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-md"><i class="fa fa-times"></i></a>
-        <a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-md"><i class="fa fa-trash"></i></a>
+        <a href="#" v-on:click.stop.prevent="saveTodo(todo.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a>
+        <a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a>
+        <a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a>
       </div>
     </div>
   </li>
@@ -100,7 +98,7 @@ export default {
       })
     },
     saveTodo (docId) {
-      let newText = this.$refs.newText.value
+      const newText = this.$refs.newText.value
       db.collection('todos')
         .doc(docId)
         .update({

@@ -66,8 +66,6 @@ export default new Vuex.Store({
           email: user.email,
           uid: user.uid
         })
-      } else {
-        commit('SetUser', null)
       }
     },
     setLists (context) {

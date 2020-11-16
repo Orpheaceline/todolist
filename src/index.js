@@ -11,11 +11,15 @@ import 'regenerator-runtime/runtime'
 
 import moment from 'moment'
 
+import VueFilterPluralize from '@vuejs-community/vue-filter-pluralize'
+
 Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 moment.locale('fr')
 
 Vue.use(VueTouch)
 Vue.config.productionTip = false
+
+Vue.use(VueFilterPluralize)
 
 const firebaseConfig = {
   apiKey: 'AIzaSyB2AviDch6GfmKnCuU3AWuWuznBBLaL20o',

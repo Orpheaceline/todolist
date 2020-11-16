@@ -1,19 +1,23 @@
 /* ---------- Dropdown ---------- */
 .dropdown
   position: relative
+  &.dark-menu .menu-link-icon
+    border-color: rgba($borderVioletDark,0.4)
   .menu-link-icon
-    width: 25px
-    height: 25px
-    border: 1px solid $borderViolet
+    width: 30px
+    height: 30px
+    border: 1px solid $borderVioletMedium
     text-decoration: none
     font-size: 13px
+    background: white
     +border-radius($radius-big)
     +center
   .menu
     position: absolute
+    z-index: 1
     top: 100%
     right: -20px
-    width: 225px
+    width: 240px
     margin-top: 10px
     padding: 15px
     background: white
@@ -39,3 +43,5 @@
         cursor: not-allowed
         pointer-events: none
         opacity: 0.5
+      a
+        text-decoration: none

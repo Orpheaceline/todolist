@@ -1,12 +1,14 @@
 <template>
   <div>
     <Navigation name="Home"/>
-    <h1 class="logo"><span>Ma Todo Liste</span></h1>
+    <show-at breakpoint="mediumAndAbove">
+      <h1 class="logo m-top-md"><span>Ma Todo Liste</span></h1>
+    </show-at>
     <section v-if="user.loggedIn" class="container">
-      <ul class="nls menu-tab flex all-2 space-sm m-bottom-lg">
-        <li v-for="(list, index) in getLists" :key="list.id" class="list-todo">
-          <a :href="'todo-' + list.id" class="bloc-violet no-p flex space-md sm-1" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
-            <span class="icon small">
+      <ul class="nls menu-tab flex flex-wrap m-md h-middle">
+        <li v-for="(list, index) in getLists" :key="list.id" class="list-todo flex h-middle p-xxs">
+          <a :href="'todo-' + list.id" class="no-p flex h-middle v-middle" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
+            <span class="icon">
               <i class="font-xl fa" :class="'fa-' + list.icon"></i>
             </span>
             <h2 class="main font-xl text-left hide-sm">{{ list.name }}</h2>
@@ -19,12 +21,12 @@
     </section>
     <section v-else>
       <div class="container-small">
-        <div class="flex all-2 space-xs text-center">
-          <div>
-            <router-link to="login" class="button display-block">Se Connecter</router-link>
-          </div>
-          <div>
-            <router-link to="register" class="button display-block">S'inscrire</router-link>
+        <h2 class="m-top-md">Todolist App'</h2>
+        <div class="bloc-violet bloc-lg full-width m-top-md">
+          <p class="violet text-center no-m">Bienvenue sur cette application de Todolist. Cette espace est réservé aux membres.</p>
+          <div class="text-center m-top-md">
+            <Login name="Home"/>
+            <router-link to="register" class="m-top-xs in-block">S'inscrire</router-link>
           </div>
         </div>
       </div>
@@ -33,13 +35,18 @@
 </template>
 
 <script>
+import {showAt, hideAt} from 'vue-breakpoints'
 import Navigation from 'components/Navbar'
+import Login from 'components/Login'
 import Todolist from 'components/Todolist'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
+    hideAt,
+    showAt,
+    Login,
     Navigation,
     Todolist
   },

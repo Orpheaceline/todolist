@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="" />
+    <list default="true" id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_variables.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/base.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/dropdown.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/dropdown.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/form.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/form.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/manage-list.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/manage-list.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/todo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/todo.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoTask.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ManageList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ManageList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +47,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1j3MxAoSDn3sNnSwo3ZZYCqZWmD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -44,21 +73,21 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
-      <recent name="C:\wamp64\www\todolist-vuejs\static" />
-      <recent name="C:\wamp64\www\todolist-vuejs\static\images" />
-      <recent name="C:\wamp64\www\todolist-vuejs" />
-      <recent name="C:\wamp64\www\todolist-vuejs\public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\todolist-vuejs\assets\fonts" />
       <recent name="C:\wamp64\www\todolist-vuejs\assets\sass" />
       <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
       <recent name="C:\wamp64\www\todolist-vuejs\src\components\Home" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
+      <recent name="C:\wamp64\www\todolist-vuejs\src\components" />
+      <recent name="C:\wamp64\www\todolist-vuejs\static" />
+      <recent name="C:\wamp64\www\todolist-vuejs\static\images" />
+      <recent name="C:\wamp64\www\todolist-vuejs" />
+    </key>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -84,11 +113,25 @@
       <workItem from="1605447133282" duration="72000" />
       <workItem from="1605447220899" duration="412000" />
       <workItem from="1605447660324" duration="11076000" />
+      <workItem from="1605511925006" duration="4963000" />
+      <workItem from="1605517235679" duration="9910000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="828" y="412" key="#ESLint" timestamp="1604311180813">
@@ -105,10 +148,18 @@
     </state>
     <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603040486277" />
     <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604334960488" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605515678064">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605515678064" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604337521176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605525684957">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605525684957" />
     <state x="675" y="64" key="SettingsEditor" timestamp="1604329044989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -119,30 +170,30 @@
     </state>
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603901394509" />
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1605460122515" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604337521176">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1605516036243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603048156734" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605516036243" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
-    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605461219297">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605516036243">
+      <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900841452" />
+    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605516036243" />
     <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605461219297" />
-    <state x="404" y="74" width="1362" height="832" key="find.popup" timestamp="1605461790820">
+    <state x="524" y="156" width="1080" height="596" key="find.popup" timestamp="1605527020974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603898719087" />
+    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605527020974" />
     <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605461790820" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1604306407296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900786408" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604306407296" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1604337640269">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605522579927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603117418230" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605522579927" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604337640269" />
   </component>
 </project>

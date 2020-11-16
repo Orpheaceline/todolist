@@ -6,9 +6,10 @@
 
 body
   margin: 0
+  padding-top: 40px
   font-family: 'Open Sans', sans-serif
   font-weight: 300
-  font-size: 14px
+  font-size: 15px
 
 *
   box-sizing: border-box
@@ -21,19 +22,25 @@ a
 .logo
   width: 100px
   max-width: 100%
-  margin: 30px auto 0
+  margin: 0 auto
   display: block
   background: url('../images/logo.png') no-repeat 0 0
   background-size: 100%
   span
     cursor: default
     opacity: 0
+  &.small
+    width: 25px
+    height: 25px
+    margin: 0
 
 /* ---- grid ---- */
 .container
   width: $container
   max-width: 100%
   margin: auto
+  +responsive(max, $breakpoint-sm)
+    padding: 0 15px
 
 .container-small
   width: $container-small
@@ -79,10 +86,14 @@ h2
 .menu-tab
   a
     text-decoration: none
+    &:not(.active) h2
+      display: none
     &.active
       border-color: #ea9fb4
       background: #fff5f8
+      +border-radius($radius-big)
       h2
+        padding: 0 20px 0 10px
         color: #ea7294
       .icon
         background: #ffdada
@@ -91,19 +102,60 @@ h2
 /* ---- Colors ---- */
 .grey
   color: $textGrey
-
+.violet
+  color: $textVioletDark
+.violet-light
+  color: $textVioletLight
 
 /* ---- Blocs ---- */
+*[class*='bloc-']
+  padding: 20px
+  background: #f6f5f7
+  border: 1px solid $borderGrey
+  +border-radius($radius-md)
+  &.bloc-lg
+    padding: 30px
+  &.bloc-sm
+    padding: 10px
+  &.bloc-xs
+    padding: 6px
+  &.bloc-radius
+    +border-radius($radius-big)
+
 .bloc-grey
-  padding: 20px
-  background: #f6f5f7
-  border: 1px solid #ece9ef
-  +border-radius($radius-md)
+  border-color: #ece9ef
 .bloc-violet
-  padding: 20px
-  background: #f6f5f7
-  border: 1px solid rgba($borderVioletMedium, 0.4)
-  +border-radius($radius-md)
+  border-color: rgba($borderVioletMedium, 0.4)
+.bloc-violet-light
+  background: rgba($textViolet, 0.08)
+  border-color: $borderViolet
+
+
+/* ---- Fa circle ---- */
+/* Circle */
+%fa-circle
+  width: 30px
+  height: 30px
+  font-size: $font-md
+  color: white
+  +center
+  +border-radius(30px)
+  &.extra-small
+    width: 16px
+    height: 16px
+    font-size: 10px
+  &.small
+    width: 22px
+    height: 22px
+  &.big
+    width: 40px
+    height: 40px
+    font-size: $font-xxl
+
+.fa-circle-violet
+  @extend %fa-circle
+  background: $textVioletLight
+
 
 /* ---- Buttons ---- */
 button, .button, *[class*='btn-']
@@ -114,8 +166,10 @@ button, .button, *[class*='btn-']
   box-shadow: none
   background: white
   text-decoration: none
-  color: $textGrey
-  +border-radius($radius-md)
+  color: $textViolet
+  font-size: 15px
+  font-family: 'Open Sans', sans-serif
+  +border-radius($radius-big)
   &:focus, &:active
     outline: none
   &:hover
@@ -128,6 +182,10 @@ button, .button, *[class*='btn-']
     padding: 5px 10px
   &.btn-xs
     padding: 2px 10px
+  &.btn-rounded
+    width: 41px
+    height: 41px
+    +center
   &.no-btn-style
     padding: 0
     border: none
@@ -142,10 +200,10 @@ button, .button, *[class*='btn-']
   &.btn-violet
     font-weight: 300
     color: white
-    border: 1px solid $borderVioletDark
-    +gradient(vertical, $borderVioletMedium, $borderVioletDark)
+    background: $backgroundVioletFlash
+    border: 0
     &:focus, &:active, &:hover
-      +gradient(vertical, $borderVioletDark, $borderVioletMedium)
+      background: rgba($borderVioletDark, 0.8)
   &.btn-red
     color: #e02416
 
@@ -173,7 +231,6 @@ button, .button, *[class*='btn-']
 
 
 /* ---- Margin & Padding ---- */
-
 .no-m
   margin: 0
 .no-p
@@ -190,6 +247,24 @@ button, .button, *[class*='btn-']
     .p-#{$direction}-#{$size}
       padding-#{$direction}: $pixel
 
+@each $direction in $directions
+  .no-m-#{$direction}
+    margin-#{$direction}: 0
+  .no-p-#{$direction}
+    padding-#{$direction}: 0
+
+@each $breakpointName, $breakpointSize in $breakpoints
+  +responsive(max, $breakpointSize)
+    .no-p-#{$breakpointName}
+      padding: 0
+    .no-m-#{$breakpointName}
+      margin: 0
+    @each $direction in $directions
+      .no-p-#{$direction}-#{$breakpointName}
+        padding-#{$direction}: 0
+      .no-m-#{$direction}-#{$breakpointName}
+        margin-#{$direction}: 0
+
 
 /* ---- Display ---- */
 .hide
@@ -204,6 +279,10 @@ button, .button, *[class*='btn-']
   width: 100%
 .display-block
   display: block
+.in-block
+  display: inline-block
+.cursor-pointer
+  cursor: pointer
 
 /* ---------- Alignment ---------- */
 .text-left
@@ -213,9 +292,26 @@ button, .button, *[class*='btn-']
 
 /* ---------- Navigation ---------- */
 .navbar
+  width: 100vw
+  position: fixed
+  top: 0
+  left: 0
   padding: 10px
   background: $borderViolet
   color: $borderVioletDark
+  +responsive(max, $breakpoint-sm)
+    padding: 5px
+    .container
+      padding: 0
+    .dropdown
+      position: static
+      .menu
+        width: 100%
+        right: 0
+        margin: 0
+        +border-radius(0)
+        &:before
+          right: 14px
 
 /* ---------- Label ---------- */
 *[class*='label-']

@@ -1,15 +1,28 @@
 <template>
   <div>
     <section v-if="user.loggedIn" class="todoapp">
-      <header class="header flex space-xs">
-        <div class="main">
-          <input :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
-        </div>
+      <header class="header flex-form">
+        <input :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
         <Datepicker ref="datePicker" v-model="todo.dueDate" :language="fr" format="dd/MM/yyyy" :class="{empty: !todo.dueDate}" @closed="addTodo"/>
       </header>
       <div class="content">
-        <div class="flex v-middle m-top-sm m-bottom-sm">
-          <span class="align-left grey">Il y a <strong>{{ activeTodos.length }}</strong> tâches à faire</span>
+        <div class="flex space-xs v-middle m-top-sm m-bottom-sm">
+          <div class="main bloc-violet-light bloc-radius bloc-xs">
+            <div class="flex space-xs v-middle">
+              <i class="fa fa-info fa-circle-violet extra-small"></i>
+              <div class="violet-light text-left">
+                <template v-if="activeTodos.length">
+                  <span v-show="list.name === 'Todo List'">{{ activeTodos.length | pluralize('fr', ['Il y a une tâche à faire.', 'Il y a ' + activeTodos.length + ' tâches à faire.']) }}</span>
+                  <span v-show="list.name === 'Travel List'">{{ activeTodos.length | pluralize('fr', ['Il y a un endroit à visiter.', 'Il y a ' + activeTodos.length + ' endroits à visiter.']) }}</span>
+                  <span v-show="list.name === 'Watch List'">{{ activeTodos.length | pluralize('fr', ['Il y a un film ou une série à regarder.', 'Il y a ' + activeTodos.length + ' films / séries à regarder.']) }}</span>
+                  <span v-show="list.name === 'Shopping List'">{{ activeTodos.length | pluralize('fr', ['Il y a une chose à acheter en course.', 'Il y a ' + activeTodos.length + ' choses à acheter en course.']) }}</span>
+                </template>
+                <template v-else>
+                  <span>Cette liste est vide.</span>
+                </template>
+              </div>
+            </div>
+          </div>
           <Dropdown id="menu-toggle" name="Dropdown">
             <slot>
               <li><a href="#" :class="{'active': type === ''}" @click="setFilterType('')">Afficher les tâches à faire ({{ activeTodos.length }})</a></li>
@@ -34,6 +47,12 @@
 <style lang="sass">
 @import "./assets/sass/todo.sass"
 </style>
+
+
+<!--travel: 'Il y a un endroit à visiter. | Il y a {count} ',-->
+<!--shopping: 'Il y a une chose à acheter en course. | Il y a {count} ',-->
+<!--watch: 'Il y a un film ou série à regarder. | Il y a {count} '-->
+
 
 <script>
 import { mapGetters } from 'vuex'

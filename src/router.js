@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from 'pages/Home'
-import Login from 'pages/Login'
-import Register from 'components/Register'
+import Register from 'pages/Register'
 import ManageList from 'pages/ManageList'
 
 Vue.use(Router)
@@ -11,11 +10,6 @@ const router = new Router({
   mode: 'hash',
   base: process.env.BASE_URL,
   routes: [
-    {
-      path: '/login',
-      name: 'login',
-      component: Login
-    },
     {
       path: '/register',
       name: 'register',

@@ -22,7 +22,7 @@ input[type=text], input[type=password], input[type=email], input[type=name]
   border: 1px solid $borderViolet
   box-shadow: none
   color: $textViolet
-  +border-radius($radius-md)
+  +border-radius($radius-big)
   &:focus, &:active
     outline: none
     border-color: $borderVioletMedium
@@ -60,3 +60,15 @@ input[type=text], input[type=password], input[type=email], input[type=name]
   line-height: 19px
   +center
   +fa(15px)
+
+.flex-form
+  display: flex
+  input
+    +border-radius(0)
+    &:first-child
+      +border-radius($radius-big 0 0 $radius-big)
+  .vdp-datepicker
+    input
+      margin-left: -1px
+      +border-radius(0 $radius-big $radius-big 0)
+

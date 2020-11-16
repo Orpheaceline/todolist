@@ -8,3 +8,16 @@
   .edit-list
     +valign-middle
     right: 20px
+  .list-line
+    position: relative
+    &.is-editing
+      .list-info
+        visibility: hidden
+      .editing-form
+        width: 100%
+        padding: 0 5px
+        position: absolute
+        left: 0
+        top: 50%
+        margin-top: -21px
+
