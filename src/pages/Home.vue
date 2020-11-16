@@ -2,7 +2,7 @@
   <div>
     <Navigation name="Home"/>
     <h1 class="logo"><span>Ma Todo Liste</span></h1>
-    <section v-if="user.loggedIn" class="p-md container">
+    <section v-if="user.loggedIn" class="container">
       <ul class="nls menu-tab flex all-2 space-sm m-bottom-lg">
         <li v-for="(list, index) in getLists" :key="list.id" class="list-todo">
           <a :href="'todo-' + list.id" class="bloc-violet no-p flex space-md sm-1" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
