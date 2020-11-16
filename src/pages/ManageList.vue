@@ -12,15 +12,15 @@
         </div>
         <p><a href="https://fontawesome.com/icons?d=gallery&s=regular&m=free" target="_blank">Voir les icones disponibles <i class="fa fa-angle-right"></i></a></p>
         <ul class="nls list-todo m-top-lg">
-          <li class="bloc-violet-light no-p bloc-radius m-top-sm" v-for="list in getLists" :key="list.id">
+          <li class="m-top-sm" v-for="list in getLists" :key="list.id">
             <div class="list-line" :class="{'is-editing': list.isEditing}">
-              <div class="list-info flex space-sm">
-                <span class="icon">
+              <div class="list-info flex space-md">
+                <span class="icon big">
                   <i class="font-xl fa" :class="'fa-' + list.icon"></i>
                 </span>
                 <div class="main text-left">
                   <h2 class="font-xl text-left cursor-pointer" @click="editList(list.id)">{{ list.name }}</h2>
-                  <span class="grey font-xs">Ajouté par {{ list.user.data.displayName }} le {{ $moment(list.createdAt).format('DD/MM/YYYY') }}</span>
+                  <span class="violet-light font-xs">Ajouté par {{ list.user.data.displayName }} le {{ $moment(list.createdAt).format('DD/MM/YYYY') }}</span>
                 </div>
               </div>
               <div v-if="list.isEditing" class="editing-form">

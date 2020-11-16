@@ -12,24 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_variables.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/base.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/dropdown.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/dropdown.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/form.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/form.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/manage-list.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/manage-list.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/todo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/todo.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoTask.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/ManageList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ManageList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,6 +100,7 @@
       <workItem from="1605447660324" duration="11076000" />
       <workItem from="1605511925006" duration="4963000" />
       <workItem from="1605517235679" duration="9910000" />
+      <workItem from="1605529223036" duration="1156000" />
     </task>
     <servers />
   </component>
@@ -180,10 +166,10 @@
     </state>
     <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605516036243" />
     <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605461219297" />
-    <state x="524" y="156" width="1080" height="596" key="find.popup" timestamp="1605527020974">
+    <state x="524" y="156" width="1080" height="596" key="find.popup" timestamp="1605530577607">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605527020974" />
+    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605530577607" />
     <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605461790820" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1604306407296">
       <screen x="0" y="0" width="1920" height="1040" />

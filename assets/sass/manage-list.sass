@@ -10,12 +10,14 @@
     right: 20px
   .list-line
     position: relative
+    background: rgba($backgroundVioletLight, 0.8)
+    +border-radius($radius-big)
     &.is-editing
       .list-info
         visibility: hidden
       .editing-form
         width: 100%
-        padding: 0 5px
+        padding: 0 25px
         position: absolute
         left: 0
         top: 50%
