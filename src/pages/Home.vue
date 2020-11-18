@@ -5,9 +5,9 @@
       <h1 class="logo m-top-md"><span>Ma Todo Liste</span></h1>
     </show-at>
     <section v-if="user.loggedIn" class="container">
-      <ul class="nls menu-tab flex flex-wrap m-md h-middle">
-        <li v-for="(list, index) in getLists" :key="list.id" class="list-todo flex h-middle p-xxs">
-          <a :href="'todo-' + list.id" class="no-p flex h-middle v-middle" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
+      <ul class="nls menu-tab flex sm-4 space-lg m-top-md m-bottom-md h-center-min-sm">
+        <li v-for="(list, index) in getLists" :key="list.id" class="list-todo flex">
+          <a :href="'todo-' + list.id" class="no-p flex v-center" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
             <span class="icon">
               <i class="font-xl fa" :class="'fa-' + list.icon"></i>
             </span>

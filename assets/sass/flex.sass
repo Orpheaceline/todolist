@@ -47,16 +47,32 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
 
 
   /* Alignment */
-  &.v-middle
-    align-items: center
-  &.h-middle
-    justify-content: center
-  &.v-start
-    align-items: flex-start
-  &.v-end
-    align-items: flex-end
-  &.h-end
-    justify-content: flex-end
+  /* for all elements */
+  @each $alignment, $value in $alignments
+    &.h-#{$alignment}
+      justify-content: #{$value}
+  @each $breakpointName, $breakpointSize in $breakpoints
+    +responsive(max, $breakpointSize)
+      @each $alignment, $value in $alignments
+        &.h-#{$alignment}-#{$breakpointName}
+          justify-content: #{$value}
+    +responsive(min, $breakpointSize)
+      @each $alignment, $value in $alignments
+        &.h-#{$alignment}-min-#{$breakpointName}
+          justify-content: #{$value}
+
+  @each $position, $value in $positions
+    &.v-#{$position}
+      align-items: #{$value}
+  @each $breakpointName, $breakpointSize in $breakpoints
+    +responsive(max, $breakpointSize)
+      @each $position, $value in $positions
+        &.v-#{$position}-#{$breakpointName}
+          align-items: #{$value}
+    +responsive(min, $breakpointSize)
+      @each $position, $value in $positions
+        &.v-#{$position}-min-#{$breakpointName}
+          align-items: #{$value}
   &.fill-space > *
     min-width: auto
     flex: 0 0 auto

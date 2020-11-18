@@ -10,7 +10,7 @@
             <input id="name" type="name" class="full-width" placeholder="pseudo" name="name" value required autofocus v-model="form.name"/>
             <input id="email" type="email" class="full-width" placeholder="email" name="email" value required autofocus v-model="form.email"/>
             <input id="password" type="password" class="full-width" placeholder="mot de passe" name="password" required v-model="form.password"/>
-            <div class="flex all-1 xs h-middle">
+            <div class="flex all-1 xs h-center">
               <button type="submit" class="btn-violet display-block m-top-sm">
                 S'inscrire
               </button>

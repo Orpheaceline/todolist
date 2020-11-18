@@ -4,20 +4,22 @@
       <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
     </div>
     <div class="todo-infos main">
-      <div class="line-todo" :class="{'is-editing': todo.isEditing}">
+      <div class="line-todo flex v-center" :class="{'is-editing': todo.isEditing}">
         <label class="cursor-pointer" @click="editTodo(todo.id)">{{ todo.name }}</label>
-        <div class="todo-info flex inline flex-wrap v-middle space-xxs">
-          <span>Ajouté par</span>
-          <strong>{{ todo.user.data.displayName }}</strong>
-          <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
-          <div class="flex inline v-middle" v-show="todo.dueDate">
-            <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
-            <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
-            <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
-          </div>
+        <div class="flex inline v-center" v-show="todo.dueDate">
+          <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
+          <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
+          <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
         </div>
+        <Tooltip class="align-right" :direction="'right'" :linkClass="'align-right'">
+          <slot>
+            <span>Ajouté par</span>
+            <strong>{{ todo.user.data.displayName }}</strong>
+            <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
+          </slot>
+        </Tooltip>
       </div>
-      <div v-if="todo.isEditing" class="editing-form flex space-xxs v-middle">
+      <div v-if="todo.isEditing" class="editing-form flex space-xxs v-center">
         <input ref="newText" :value="todo.name" @keyup.enter="saveTodo(todo.id, $event)" type="text">
         <a href="#" v-on:click.stop.prevent="saveTodo(todo.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a>
         <a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a>
@@ -30,9 +32,13 @@
 <script>
 import {db} from "../index";
 import {mapGetters} from "vuex";
+import Tooltip from 'components/Tooltip'
 
 export default {
   name: "TodoTask",
+  components: {
+    Tooltip
+  },
   props: {
     todo: Object
   },

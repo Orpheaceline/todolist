@@ -156,6 +156,16 @@ h2
   @extend %fa-circle
   background: $textVioletLight
 
+.fa-circle-violet-light
+  @extend %fa-circle
+  color: $textVioletLight
+  background: rgba($textVioletLight, 0.35)
+
+.fa-circle-red
+  @extend %fa-circle
+  color: white
+  background: #ec5858
+
 
 /* ---- Buttons ---- */
 button, .button, *[class*='btn-']
@@ -212,7 +222,7 @@ button, .button, *[class*='btn-']
 @each $color, $variable in $borderColor
   .border-#{$color}
     border: 1px solid $variable
-  @each $direction in $directions
+  @each $direction, $value in $directions
     /* ex: border-top-grey */
     .border-#{$direction}-#{$color}
       border-#{$direction}: 1px solid $variable
@@ -225,7 +235,7 @@ button, .button, *[class*='btn-']
 
 @each $breakpointName, $breakpointSize in $breakpoints
   +responsive(max, $breakpointSize)
-    @each $direction in $directions
+    @each $direction, $value in $directions
       .no-border-#{$direction}-#{$breakpointName}
         border-#{$direction}: 0
 
@@ -241,13 +251,13 @@ button, .button, *[class*='btn-']
     margin: $pixel
   .p-#{$size}
     padding: $pixel
-  @each $direction in $directions
+  @each $direction, $value in $directions
     .m-#{$direction}-#{$size}
       margin-#{$direction}: $pixel
     .p-#{$direction}-#{$size}
       padding-#{$direction}: $pixel
 
-@each $direction in $directions
+@each $direction, $value in $directions
   .no-m-#{$direction}
     margin-#{$direction}: 0
   .no-p-#{$direction}
@@ -259,7 +269,7 @@ button, .button, *[class*='btn-']
       padding: 0
     .no-m-#{$breakpointName}
       margin: 0
-    @each $direction in $directions
+    @each $direction, $value in $directions
       .no-p-#{$direction}-#{$breakpointName}
         padding-#{$direction}: 0
       .no-m-#{$direction}-#{$breakpointName}
@@ -289,6 +299,23 @@ button, .button, *[class*='btn-']
   text-align: left
 .text-center
   text-align: center
+
+
+/* ---------- Alert ---------- */
+*[class*='alert-']
+  width: 100%
+  margin-bottom: 8px
+  padding: 5px 10px
+  background: rgba($backgroundGreyLight, 0.8)
+  color: $textGrey
+  +border-radius($radius-md)
+
+.alert-red
+  border: 1px solid #f1cccc
+  color: #ec5858
+  background: rgba(#ec5858, 0.1)
+
+
 
 /* ---------- Navigation ---------- */
 .navbar

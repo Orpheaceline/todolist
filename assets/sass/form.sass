@@ -71,4 +71,19 @@ input[type=text], input[type=password], input[type=email], input[type=name]
     input
       margin-left: -1px
       +border-radius(0 $radius-big $radius-big 0)
+    .vdp-datepicker__calendar
+      margin-top: 5px
+      padding: 10px
+      border-color: $borderViolet
+      color: $textViolet
+      box-shadow: 0 0 5px #e7e6ea
+      +border-radius($radius-md)
+      .prev, .next, .cell.day.today
+        font-weight: bold
+        background: $backgroundVioletLight
+        +border-radius($radius-big)
+      .prev:after
+        border-right-color: $textViolet
+      .next:after
+        border-left-color: $textViolet
 

@@ -1,14 +1,18 @@
 <template>
   <div>
     <section v-if="user.loggedIn" class="todoapp">
+      <div ref="alertRed" class="alert-red flex space-sm v-center h-center hide">
+        <i class="fa fa-exclamation fa-circle-red extra-small m-right-sm"></i>
+        Veuillez compléter le champ ci dessous.
+      </div>
       <header class="header flex-form">
-        <input :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo">
+        <input ref="todoName" :id="'add-todo-' + list.id" v-model="todo.name" type="text" placeholder="Ajouter une tache" @keyup.enter="addTodo()">
         <Datepicker ref="datePicker" v-model="todo.dueDate" :language="fr" format="dd/MM/yyyy" :class="{empty: !todo.dueDate}" @closed="addTodo"/>
       </header>
       <div class="content">
-        <div class="flex space-xs v-middle m-top-sm m-bottom-sm">
+        <div class="flex space-xs v-center m-top-sm m-bottom-sm">
           <div class="main bloc-violet-light bloc-radius bloc-xs">
-            <div class="flex space-xs v-middle">
+            <div class="flex space-xs v-center">
               <i class="fa fa-info fa-circle-violet extra-small"></i>
               <div class="violet-light text-left">
                 <template v-if="activeTodos.length">
@@ -118,17 +122,23 @@ export default {
   },
   methods: {
     addTodo () {
-      db.collection('todos').add({
-        list: this.list.id,
-        name: this.todo.name,
-        createdAt: this.$moment().format(),
-        isCompleted: false,
-        isEditing: false,
-        dueDate: this.todo.dueDate ? this.$moment(this.todo.dueDate).format() : null,
-        user: this.user
-      })
-      this.todo.name = ''
-      this.$refs.datePicker.clearDate()
+      if (this.todo.name) {
+        db.collection('todos').add({
+          list: this.list.id,
+          name: this.todo.name,
+          createdAt: this.$moment().format(),
+          isCompleted: false,
+          isEditing: false,
+          dueDate: this.todo.dueDate ? this.$moment(this.todo.dueDate).format() : null,
+          user: this.user
+        })
+        this.todo.name = ''
+        this.$refs.datePicker.clearDate()
+      } else {
+        this.$refs.todoName.classList.add('red')
+        this.$refs.alertRed.classList.remove('hide')
+      }
+
     },
     setFilterType (type) {
       this.type = type

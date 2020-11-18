@@ -1,0 +1,32 @@
+/* ---------- Tooltip ---------- */
+.tooltip
+  position: relative
+  &.right .tooltip-content
+    right: 100%
+    margin-right: 10px
+    border-left: 5px solid $textVioletLight
+    &:before, &:after
+      content: ""
+      width: 0
+      height: 0
+      right: -8px
+      border-style: solid
+      border-width: 7px 0 7px 8px
+      +valign-middle
+    &:before
+      border-color: transparent transparent transparent $borderVioletMedium
+    &:after
+      right: -7px
+      border-color: transparent transparent transparent $backgroundVioletLighter
+  &.left .tooltip-content
+    left: 0
+  .tooltip-content
+    +valign-middle
+    white-space: nowrap
+    padding: 10px 12px
+    font-size: 14px
+    text-align: center
+    color: $textVioletLight
+    border: 1px solid $borderViolet
+    background: $backgroundVioletLighter
+    +border-radius($radius-lg)

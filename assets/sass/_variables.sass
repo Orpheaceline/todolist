@@ -10,6 +10,7 @@ $borderVioletMedium: #dfdee2
 $borderVioletDark: #817990
 $borderGrey: #e4e4e4
 $backgroundVioletLight: #f1f0f5
+$backgroundVioletLighter: #f4f4f8
 $backgroundViolet: #eeebf3
 $backgroundVioletFlash: #9387ad
 $backgroundGreyLight: #f5f5f7
@@ -22,8 +23,12 @@ $textGrey: #afafaf
 $borderColor: (grey: $borderGrey, violet: $borderViolet, violet-med: $borderVioletMedium, violet-dark: $borderVioletDark)
 
 
-//-------- Directions -------//
+//------------------------------//
+//--------- Directions ---------//
+//------------------------------//
 $directions: ('top', 'right', 'bottom', 'left')
+$alignments: (left: 'flex-start', center: 'center', right: 'flex-end')
+$positions: (top: 'flex-start', center: 'center', bottom: 'flex-end')
 
 
 //------------ Units ------------//
@@ -43,6 +48,7 @@ $pixel-xxl: 50px
 
 $sizes: (xxs:$pixel-xxs, xs:$pixel-xs, sm:$pixel-sm, md:$pixel-md, lg:$pixel-lg, xl:$pixel-xl, xxl:$pixel-xxl)
 
+$breakpoint-xxs: 320px
 $breakpoint-xs: 470px
 $breakpoint-sm: 769px
 $breakpoint-md: 992px
@@ -53,7 +59,7 @@ $breakpoint-xxl: 1550px
 $container: 550px
 $container-small: 300px
 
-$breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md: $breakpoint-md, sm: $breakpoint-sm, xs: $breakpoint-xs)
+$breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md: $breakpoint-md, sm: $breakpoint-sm, xs: $breakpoint-xs, xxs: $breakpoint-xxs)
 
 
 // Font Size //

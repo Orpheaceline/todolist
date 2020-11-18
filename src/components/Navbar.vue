@@ -3,7 +3,7 @@
     <hide-at breakpoint="mediumAndAbove">
       <nav class="navbar">
         <div class="container">
-          <div class="flex space-sm v-middle h-middle">
+          <div class="flex space-sm v-center h-center">
             <router-link to="/" class="logo small"></router-link>
             <template v-if="user.loggedIn">
                 <strong class="align-center">{{ user.data.displayName }}</strong>
@@ -25,7 +25,7 @@
     <show-at breakpoint="mediumAndAbove">
       <nav class="navbar" v-if="user.loggedIn">
         <div class="container">
-          <ul class="nls flex space-xxs h-middle v-middle">
+          <ul class="nls flex space-xxs h-center v-center">
             <li><router-link to="/" class="m-top-xs">Accueil</router-link></li>
             <li class="border-left-violet-med m-left-xs p-left-sm"><router-link to="manage-list" class="m-top-xs">Modifier les listes</router-link></li>
             <li class="border-left-violet-med m-left-xs p-left-sm align-right">Bienvenue <strong>{{ user.data.displayName }}</strong> !</li>

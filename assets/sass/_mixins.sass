@@ -37,7 +37,7 @@
   @else
     @for $i from 1 through 8
       &.#{$mediaqueries}-#{$i}
-        &:not(.h-middle-grid):not(.h-left-grid) > *
+        &:not(.h-center-grid):not(.h-left-grid) > *
           @if $i == 1
             max-width: 100%
             +flex(0 0 100%)
@@ -48,7 +48,7 @@
             +flex(0 0 calc(#{100/$i +0%} - #{$space}*0.5))
             &:nth-child(1n+#{$i+1})
               margin-top: $space
-        &.h-middle-grid, &.h-left-grid
+        &.h-center-grid, &.h-left-grid
           margin-left: -$space
           > *
             @if $i == 1
@@ -62,7 +62,7 @@
               padding-left: $space
               &:nth-child(1n+#{$i+1})
                 margin-top: $space
-        &.h-middle-grid
+        &.h-center-grid
           justify-content: center
         &.h-left-grid
           justify-content: start
