@@ -5,7 +5,7 @@
       <h1 class="logo m-top-md"><span>Ma Todo Liste</span></h1>
     </show-at>
     <section v-if="user.loggedIn" class="container">
-      <ul class="nls menu-tab flex sm-4 space-lg m-top-md m-bottom-md h-center-min-sm">
+      <ul class="nls menu-tab flex sm-5 space-sm-min-sm space-xs-max-sm space-xxs-max-xs m-top-md m-bottom-md h-center">
         <li v-for="(list, index) in getLists" :key="list.id" class="list-todo flex">
           <a :href="'todo-' + list.id" class="no-p flex v-center" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
             <span class="icon">
@@ -40,6 +40,7 @@ import Navigation from 'components/Navbar'
 import Login from 'components/Login'
 import Todolist from 'components/Todolist'
 import { mapGetters } from 'vuex'
+import {db} from "../index";
 
 export default {
   name: 'Home',
@@ -52,6 +53,7 @@ export default {
   },
   data () {
     return {
+      todos: [],
       lists: [],
       list: ''
     }
@@ -59,17 +61,32 @@ export default {
   computed: {
     ...mapGetters([
       'user',
-      'getLists'
+      'getLists',
+      'getTodos'
     ])
   },
   created: function () {
-    this.$store.dispatch('setLists')
+    this.$store.dispatch('setLists').then(() => {
+      this.setEditingToFalse()
+    })
   },
   methods: {
+    setEditingToFalse () {
+      this.getTodos.forEach(todo => {
+        db.collection('todos')
+            .doc(todo.id)
+            .update({
+              isEditing: false
+            })
+      })
+    },
     showTab (e) {
       const target = e.currentTarget.getAttribute('href')
       const allLink = e.target.closest('.menu-tab').getElementsByTagName('a')
       const allTab = this.$refs.Tab
+
+      this.setEditingToFalse()
+
       allLink.forEach((element) => {
         element.classList.remove('active')
       })

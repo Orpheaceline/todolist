@@ -12,26 +12,30 @@
         </div>
         <p><a href="https://fontawesome.com/icons?d=gallery&s=regular&m=free" target="_blank">Voir les icones disponibles <i class="fa fa-angle-right"></i></a></p>
         <ul class="nls list-todo m-top-lg">
-          <li class="m-top-sm" v-for="list in getLists" :key="list.id">
-            <div class="list-line" :class="{'is-editing': list.isEditing}">
-              <div class="list-info flex space-md">
-                <span class="icon big">
-                  <i class="font-xl fa" :class="'fa-' + list.icon"></i>
-                </span>
-                <div class="main text-left">
-                  <h2 class="font-xl text-left cursor-pointer" @click="editList(list.id)">{{ list.name }}</h2>
-                  <span class="violet-light font-xs">Ajouté par {{ list.user.data.displayName }} le {{ $moment(list.createdAt).format('DD/MM/YYYY') }}</span>
-                </div>
-              </div>
-              <div v-if="list.isEditing" class="editing-form">
-                <div class="flex space-xxs">
-                  <div><input :id="'icon-' + list.id" class="input-icon" :value="list.icon" type="text" style="width:85px"></div>
-                  <div class="main flex space-xxs">
-                    <div class="main"><input :id="'name-' + list.id" class="full-width" :value="list.name" type="text"></div>
-                    <a href="" v-on:click.stop.prevent="saveList(list.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a>
-                    <a href="" v-on:click.stop.prevent="cancelEditList(list.id, $event)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a>
-                    <a href="" v-on:click.stop.prevent="deleteList(list.id, $event)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a>
-                  </div>
+          <li class="m-top-sm list-line flex v-center" :class="{'is-editing': list.isEditing}" v-for="list in getLists" :key="list.id" draggable="true" @dragstart="dragStart(list, $event)" @dragover.prevent @dragenter="dragEnter" @dragleave="dragLeave" @dragend="dragEnd" @drop="dragFinish(list, $event)">
+            <div>
+              <span class="icon big">
+                <i class="font-xl fa" :class="'fa-' + list.icon"></i>
+              </span>
+            </div>
+            <div class="main flex v-center space-sm p-md text-left">
+              <label class="font-xl cursor-pointer font-bold" @click="editList(list.id)">{{ list.name }}</label>
+              <Tooltip class="align-right" :direction="'right'" :linkClass="'align-right'">
+                <slot>
+                  <span>Ajouté par</span>
+                  <strong>{{ list.user.data.displayName }}</strong>
+                  <span>le <strong>{{ moment(list.createdAt) }}</strong></span>
+                </slot>
+              </Tooltip>
+            </div>
+            <div v-if="list.isEditing" class="editing-form">
+              <div class="flex space-xxs">
+                <div><input :id="'icon-' + list.id" class="input-icon" :value="list.icon" type="text" style="width:85px"></div>
+                <div class="main flex space-xxs">
+                  <div class="main"><input :id="'name-' + list.id" class="full-width" :value="list.name" type="text"></div>
+                  <div><a href="" v-on:click.stop.prevent="saveList(list.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
+                  <div><a href="" v-on:click.stop.prevent="cancelEditList(list.id, $event)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a></div>
+                  <div><a href="" v-on:click.stop.prevent="deleteList(list.id, $event)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a></div>
                 </div>
               </div>
             </div>
@@ -46,7 +50,8 @@
 import Navigation from 'components/Navbar'
 import { mapGetters } from 'vuex'
 import { db } from '../index'
-import {hideAt, showAt} from "vue-breakpoints";
+import {hideAt, showAt} from "vue-breakpoints"
+import Tooltip from 'components/Tooltip'
 
 export default {
   name: 'ManageList',
@@ -54,13 +59,16 @@ export default {
     Navigation,
     hideAt,
     showAt,
+    Tooltip
   },
   data () {
     return {
       lists: [],
       list: {
+        order: 0,
         icon: 'tasks'
-      }
+      },
+      dragging: -1
     }
   },
   computed: {
@@ -70,18 +78,27 @@ export default {
     ])
   },
   created: function () {
-    this.$store.dispatch('setLists')
-    this.getLists.forEach(list => {
-      db.collection('todolists')
+    this.$store.dispatch('setLists').then(() => {
+      this.setEditingToFalse()
+    })
+  },
+  methods: {
+    setEditingToFalse () {
+      this.getLists.forEach(list => {
+        db.collection('todolists')
           .doc(list.id)
           .update({
             isEditing: false
           })
-    })
-  },
-  methods: {
+      })
+    },
+    moment (date) {
+      return this.$moment(date).format('DD/MM/YYYY')
+    },
     ManageList () {
+      const order = this.getLists.length
       db.collection('todolists').add({
+        order: order + 1,
         name: this.list.name,
         icon: this.list.icon,
         createdAt: this.$moment().format(),
@@ -126,8 +143,69 @@ export default {
     },
     deleteList (docId) {
       db.collection('todolists')
-        .doc(docId)
-        .delete()
+          .doc(docId)
+          .delete()
+    },
+    dragStart(which, event) {
+      event.dataTransfer.dropEffect = 'move'
+      this.dragging = which;
+    },
+    dragEnter(event) {
+      event.target.classList.add('is-target')
+    },
+    dragLeave(event) {
+      event.target.classList.remove('is-target')
+    },
+    dragEnd() {
+      this.dragging = -1
+    },
+    dragFinish(to, event) {
+      this.moveItem(this.dragging, to);
+      event.target.classList.remove('is-target')
+    },
+    moveItem(from, to) {
+      if (from.id !== to.id) {
+        db.collection('todolists')
+            .doc(from.id)
+            .update({
+              order: to.order
+            })
+        if (from.order < to.order) {
+          db.collection('todolists')
+              .doc(to.id)
+              .update({
+                order: to.order - 1
+              })
+          this.getLists.forEach(list => {
+            if (list.order !== to.order && list.order !== from.order && from.order + 1 !== to.order) {
+              if (list.order < to.order) {
+                db.collection('todolists')
+                    .doc(list.id)
+                    .update({
+                      order: list.order - 1
+                    })
+              }
+            }
+          })
+        } else {
+          db.collection('todolists')
+              .doc(to.id)
+              .update({
+                order: to.order + 1
+              })
+          this.getLists.forEach(list => {
+            if (list.order !== to.order && list.order !== from.order && from.order - 1 !== to.order) {
+              if (list.order > to.order) {
+                db.collection('todolists')
+                    .doc(list.id)
+                    .update({
+                      order: list.order + 1
+                    })
+              }
+            }
+          })
+        }
+      }
     }
   }
 }
@@ -136,3 +214,4 @@ export default {
 <style lang="sass">
 @import "../../assets/sass/manage-list"
 </style>
+

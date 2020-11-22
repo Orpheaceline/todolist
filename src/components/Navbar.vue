@@ -7,7 +7,7 @@
             <router-link to="/" class="logo small"></router-link>
             <template v-if="user.loggedIn">
                 <strong class="align-center">{{ user.data.displayName }}</strong>
-                <Dropdown id="menu-toggle" name="Dropdown" class="dark-menu align-right text-center">
+                <Dropdown id="menu-toggle" name="Dropdown" class="dark-menu text-center">
                   <slot>
                     <li><router-link to="/" class="m-top-xs">Voir les listes</router-link></li>
                     <li><router-link to="manage-list">Modifier les listes</router-link></li>

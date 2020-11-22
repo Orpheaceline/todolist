@@ -15,9 +15,7 @@
 // -------------------------- Flex -------------------------- //
 =space-mediaqueries
   flex-wrap: wrap
-  justify-content: space-between
-  > *
-    margin-right: 0 !important
+  justify-content: center
 
 =display-flex($value:'')
   @if $value == 'important'
@@ -25,47 +23,26 @@
   @else
     display: flex
 
-=flex($value)
-  flex: $value
-
 =flex-grid($mediaqueries, $space)
   @if $space == 0
     @for $i from 1 through 8
       &.#{$mediaqueries}-#{$i} > *
         max-width: #{100/$i +0%}
-        +flex(0 0 #{100/$i +0%})
+        flex: 0 0 #{100/$i +0%}
   @else
     @for $i from 1 through 8
       &.#{$mediaqueries}-#{$i}
-        &:not(.h-center-grid):not(.h-left-grid) > *
+        > *
           @if $i == 1
             max-width: 100%
-            +flex(0 0 100%)
+            flex: 0 0 100%
             + *
-              margin-top: $space
+              padding-top: $space
           @else
             max-width: calc(#{100/$i +0%} - #{$space}*0.5)
-            +flex(0 0 calc(#{100/$i +0%} - #{$space}*0.5))
+            flex: 0 0 calc(#{100/$i +0%} - #{$space}*0.5)
             &:nth-child(1n+#{$i+1})
-              margin-top: $space
-        &.h-center-grid, &.h-left-grid
-          margin-left: -$space
-          > *
-            @if $i == 1
-              max-width: 100%
-              +flex(0 0 100%)
-              + *
-                margin-top: $space
-            @else
-              max-width: #{100/$i +0%}
-              +flex(0 0 #{100/$i +0%})
-              padding-left: $space
-              &:nth-child(1n+#{$i+1})
-                margin-top: $space
-        &.h-center-grid
-          justify-content: center
-        &.h-left-grid
-          justify-content: start
+              padding-top: $space
 
 =center-v
   flex-wrap: wrap

@@ -33,7 +33,7 @@ export default new Vuex.Store({
     },
     async setLists (state) {
       let lists = []
-      await db.collection('todolists').orderBy('createdAt').onSnapshot((snapshot) => {
+      await db.collection('todolists').orderBy('order').onSnapshot((snapshot) => {
         lists = []
         snapshot.forEach((doc) => {
           lists.push({
@@ -46,7 +46,7 @@ export default new Vuex.Store({
     },
     async setTodos (state) {
       let todos = []
-      await db.collection('todos').onSnapshot((snapshot) => {
+      await db.collection('todos').orderBy('order').onSnapshot((snapshot) => {
         todos = []
         snapshot.forEach((doc) => {
           const todo = doc.data()
@@ -64,7 +64,8 @@ export default new Vuex.Store({
         commit('setUser', {
           displayName: user.displayName,
           email: user.email,
-          uid: user.uid
+          uid: user.uid,
+          role: 'Writer'
         })
       }
     },
@@ -74,5 +75,6 @@ export default new Vuex.Store({
     setTodos (context) {
       context.commit('setTodos')
     }
+
   }
 })

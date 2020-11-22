@@ -16,22 +16,25 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
     &.space-#{$size}
       +flex-grid(all, $pixel)
 
-  @each $breakpointSize, $breakpointName in $breakpoints
-    +responsive(max, $breakpointName)
-      &[class*='#{$breakpointSize}-']
+  @each $breakpointName, $breakpointSize in $breakpoints
+    +responsive(max, $breakpointSize)
+      &[class*=' #{$breakpointName}-']
         +space-mediaqueries
 
       &.flex-responsive-hide
         @for $i from 1 through 8
-          &[class*='#{$breakpointSize}-#{$i}']
+          &[class*='#{$breakpointName}-#{$i}']
             > *:nth-child(n+#{$i+1})
               display: none !important
 
-      +flex-grid($breakpointSize, 0)
+      +flex-grid($breakpointName, 0)
 
       @each $size, $pixel in $sizes
         &.space-#{$size}
-          +flex-grid($breakpointSize, $pixel)
+          +flex-grid($breakpointName, $pixel)
+        @each $spaceBreakpointName, $value in $breakpoints
+          &.space-#{$size}-max-#{$spaceBreakpointName}
+            +flex-grid($breakpointName, $pixel)
 
     +responsive(max, $breakpoint-sm)
       &.flex-mobile-hide
@@ -43,8 +46,16 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
   /* Space */
   @each $size, $pixel in $sizes
     &.space-#{$size} > *:not(:last-child)
-      margin-right: $pixel
-
+      padding-right: $pixel
+  @each $breakpointName, $breakpointSize in $breakpoints
+    +responsive(min, $breakpointSize)
+      @each $size, $pixel in $sizes
+        &.space-#{$size}-min-#{$breakpointName} > *
+          padding-right: $pixel
+    +responsive(max, $breakpointSize)
+      @each $size, $pixel in $sizes
+        &.space-#{$size}-max-#{$breakpointName} > *
+          padding-right: $pixel
 
   /* Alignment */
   /* for all elements */
@@ -73,6 +84,7 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
       @each $position, $value in $positions
         &.v-#{$position}-min-#{$breakpointName}
           align-items: #{$value}
+
   &.fill-space > *
     min-width: auto
     flex: 0 0 auto
@@ -103,11 +115,11 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
 
   /* Size */
   > .main
-    +flex(1)
+    flex: 1
   > .full-width
     max-width: 100% !important
     width: 100% !important
-    +flex(100% !important)
+    flex: 100% !important
 
   /* Flow */
   &.flex-wrap
@@ -133,7 +145,7 @@ $breakpoints: (xxl: $breakpoint-xxl, xl: $breakpoint-xl, lg: $breakpoint-lg, md:
     width: 100%
     flex-direction: column
     display: inline-flex
-    +flex(1)
+    flex: 1
     > *
       height: 100%
       &.align-bottom

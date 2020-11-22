@@ -11,21 +11,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/sass/tooltip.sass" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Tooltip.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/_mixins.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_mixins.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_variables.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/base.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/flex.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/flex.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/form.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/form.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/manage-list.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/manage-list.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/sass/todo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/todo.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TodoTask.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TodoTask.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TodoTask.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ManageList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ManageList.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.2.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -113,7 +110,13 @@
       <workItem from="1605511925006" duration="4963000" />
       <workItem from="1605517235679" duration="9910000" />
       <workItem from="1605529223036" duration="1242000" />
-      <workItem from="1605686207320" duration="7436000" />
+      <workItem from="1605686207320" duration="7506000" />
+      <workItem from="1606032005422" duration="364000" />
+      <workItem from="1606032406478" duration="226000" />
+      <workItem from="1606032687242" duration="312000" />
+      <workItem from="1606033041354" duration="656000" />
+      <workItem from="1606033729941" duration="2000" />
+      <workItem from="1606033755787" duration="27355000" />
     </task>
     <servers />
   </component>
@@ -147,10 +150,10 @@
     </state>
     <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603040486277" />
     <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604334960488" />
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605515678064">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606050779407">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605515678064" />
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606050779407" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604337521176">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -169,30 +172,34 @@
     </state>
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603901394509" />
     <state width="517" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1605460122515" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1606056864764">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606056864764" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1605516036243">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605516036243" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
-    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605516036243">
+    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606055984151">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605516036243" />
+    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606055984151" />
     <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605461219297" />
-    <state x="524" y="156" width="1080" height="596" key="find.popup" timestamp="1605691788387">
+    <state x="524" y="156" width="1080" height="596" key="find.popup" timestamp="1606057389416">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605691788387" />
+    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606057389416" />
     <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605461790820" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1604306407296">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900786408" />
     <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604306407296" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605522579927">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606047839936">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1605522579927" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606047839936" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604337640269" />
   </component>
 </project>

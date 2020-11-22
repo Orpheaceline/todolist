@@ -8,12 +8,21 @@
   .edit-list
     +valign-middle
     right: 20px
+  .list-todo > li
+    &.is-target
+      background: rgba($backgroundVioletFlash, 0.3)
+      .icon.big
+        background: rgba($backgroundVioletFlash, 0.5)
+      *
+        pointer-events: none
   .list-line
     position: relative
     background: rgba($backgroundVioletLight, 0.8)
     +border-radius($radius-big)
+    label
+      color: $textViolet
     &.is-editing
-      .list-info
+      .icon.big, > .main
         visibility: hidden
       .editing-form
         width: 100%
