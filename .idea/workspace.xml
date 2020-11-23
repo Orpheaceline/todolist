@@ -1,73 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../add_vhost.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_sockets.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../testmysql.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../todolist-angular" beforeDir="false" />
+    <list default="true" id="283c2c8d-6996-4fdd-aec4-00ed71c694a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/todo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/todo.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ManageList.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ManageList.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_czech.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_english.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_french.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_hellenic.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_macedonian.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_portuguese.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_romanian.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_spanish.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/add_vhost_turkish.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_czech.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_english.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_french.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_hellenic.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_macedonian.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_portuguese.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_romanian.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_spanish.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wamplangues/index_turkish.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/gifLogo.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/gifLogo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/gifLogo1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/pngFolder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/pngFolderGo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/pngPlugin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/img/pngWrench.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/classic/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/generator_config.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-demo.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/rationale-regular-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/specimen_files/easytabs.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/specimen_files/grid_12-825-55-15.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/specimen_files/specimen_stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/fonts/webfontkit-20150426-043002.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/bg-begin-repeat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/bg-dl-repeat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/bg-header.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/bg-title-dark.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/bg-wall-repeat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/divider.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/pngFolder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/pngFolderGo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/pngPlugin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/img/pngWrench.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/modern/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/no-style/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wampthemes/simple/style.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,143 +20,47 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Vue Single File Component" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1j3MxAoSDn3sNnSwo3ZZYCqZWmD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1kgOnVwv1qK8oD6RpphT2WZ5Jc0" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="editorconfig.notification" value="null" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
-      <recent name="C:\wamp64\www\todolist-vuejs\static" />
-      <recent name="C:\wamp64\www\todolist-vuejs\static\images" />
-      <recent name="C:\wamp64\www\todolist-vuejs" />
-      <recent name="C:\wamp64\www\todolist-vuejs\public" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\todolist-vuejs\assets\fonts" />
-      <recent name="C:\wamp64\www\todolist-vuejs\assets\sass" />
-      <recent name="C:\wamp64\www\todolist-vuejs\src\pages" />
-      <recent name="C:\wamp64\www\todolist-vuejs\src\components\Home" />
-    </key>
-  </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="81b15bae-f960-45d2-b83e-53bdeb65dbf8" name="Default Changelist" comment="" />
-      <created>1603028566864</created>
+      <changelist id="283c2c8d-6996-4fdd-aec4-00ed71c694a4" name="Default Changelist" comment="" />
+      <created>1606118936318</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1603028566864</updated>
-      <workItem from="1603028568755" duration="23370000" />
-      <workItem from="1603052682639" duration="4244000" />
-      <workItem from="1603088861650" duration="23268000" />
-      <workItem from="1603192375829" duration="603000" />
-      <workItem from="1603892277135" duration="13760000" />
-      <workItem from="1603984311693" duration="16000" />
-      <workItem from="1604137402089" duration="71775000" />
-      <workItem from="1604303810751" duration="28584000" />
-      <workItem from="1604332834081" duration="4844000" />
-      <workItem from="1604583514826" duration="1000" />
-      <workItem from="1605446467400" duration="161000" />
-      <workItem from="1605446647503" duration="314000" />
-      <workItem from="1605447133282" duration="72000" />
-      <workItem from="1605447220899" duration="412000" />
-      <workItem from="1605447660324" duration="11187000" />
-      <workItem from="1605804817188" duration="28000" />
-      <workItem from="1606069188564" duration="288000" />
-      <workItem from="1606069581331" duration="3104000" />
-      <workItem from="1606073573755" duration="261000" />
+      <updated>1606118936318</updated>
+      <workItem from="1606118937633" duration="14732000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="828" y="412" key="#ESLint" timestamp="1604311180813">
+    <state x="-1826" y="90" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1606134475491">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1826" y="90" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606134475491" />
+    <state x="663" y="238" width="585" height="564" key="find.popup" timestamp="1606129383763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="828" y="412" key="#ESLint/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603903415206" />
-    <state x="828" y="412" key="#ESLint/0.0.1920.1040@0.0.1920.1040" timestamp="1604311180813" />
-    <state x="761" y="27" width="1024" height="985" key="#HTML" timestamp="1604246046451">
+    <state x="663" y="238" width="585" height="564" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606129383763" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606125021532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="761" y="27" width="1024" height="985" key="#HTML/0.0.1920.1040@0.0.1920.1040" timestamp="1604246046451" />
-    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604334960488">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603040486277" />
-    <state x="716" y="322" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604334960488" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1604337521176">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
-    <state x="675" y="64" key="SettingsEditor" timestamp="1604329044989">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603028771598" />
-    <state x="675" y="64" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1604329044989" />
-    <state width="517" height="446" key="SwitcherDM" timestamp="1605460122515">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="517" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603901394509" />
-    <state width="517" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1605460122515" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1604337521176">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603048156734" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604337521176" />
-    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605461219297">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1858" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900841452" />
-    <state x="62" y="50" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605461219297" />
-    <state x="404" y="74" width="1362" height="832" key="find.popup" timestamp="1606071894112">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="524" y="156" width="1080" height="596" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603898719087" />
-    <state x="404" y="74" width="1362" height="832" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606071894112" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup" timestamp="1604306407296">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603900786408" />
-    <state x="616" y="240" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604306407296" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606070014375">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1603117418230" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606070014375" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606125021532" />
   </component>
 </project>

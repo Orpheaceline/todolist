@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import VueTouch from 'vue-touch'
 import App from './App.vue'
 import router from './router'
 import firebase from 'firebase/app'
@@ -10,16 +9,15 @@ import 'core-js/stable'
 import 'regenerator-runtime/runtime'
 
 import moment from 'moment'
-
 import VueFilterPluralize from '@vuejs-community/vue-filter-pluralize'
+// import VueTouch from 'vue-touch'
 
 Object.defineProperty(Vue.prototype, '$moment', { value: moment })
 moment.locale('fr')
-
-Vue.use(VueTouch)
-Vue.config.productionTip = false
-
 Vue.use(VueFilterPluralize)
+// Vue.use(VueTouch)
+
+Vue.config.productionTip = false
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDJ_KAAdhEwPPgkmFnNnzDsbkIDRwpRCkU',

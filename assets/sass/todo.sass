@@ -64,12 +64,12 @@
       margin-right: -15px
     .todo
       position: relative
-      min-height: 63px
       border-left: 1px solid $borderViolet
       border-right: 1px solid $borderViolet
       text-align: left
-      padding: 10px
-      +center
+      > *
+        min-height: 63px
+        padding: 10px
       &:first-child
         border-top: 1px solid $borderViolet
         +responsive(min, $breakpoint-sm)
@@ -78,10 +78,8 @@
         border-bottom: 1px solid $borderViolet
         +responsive(min, $breakpoint-sm)
           +border-radius(0 0 $radius-md $radius-md)
-      &.is-target
-        border-left: 5px solid $borderViolet
-        *
-          pointer-events: none
+      &.sortable-ghost
+        background: $backgroundVioletLight
       + li
         border-top: 1px solid $borderViolet
       input[type=text]

@@ -41,36 +41,48 @@
             </slot>
           </Dropdown>
         </div>
-        <ul class="nls task-list">
-          <li class="todo flex space-sm" :class="{completed: todo.isCompleted}" v-for="todo in filteredTodos" :key="todo.id" v-if="todo.listId === list.id" draggable="true" @dragstart="dragStart(todo, $event)" @dragover.prevent @dragenter="dragEnter" @dragleave="dragLeave" @dragend="dragEnd" @drop="dragFinish(todo, $event)">
-            <div class="input-checkbox">
-              <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
-            </div>
-            <div class="todo-infos main">
-              <div class="line-todo flex v-center" :class="{'is-editing': todo.isEditing}" @dragenter.prevent @dragleave.prevent @dragover.prevent>
-                <label class="cursor-pointer" @click="editTodo(todo.id)">{{ todo.name }}</label>
-                <div class="flex inline v-center" v-show="todo.dueDate">
-                  <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
-                  <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
-                  <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
+        <draggable @end="updateOrder" draggable=".todo">
+          <transition-group tag="ul" type="transition" :name="'task-list'" class="nls task-list">
+            <li class="todo"
+                :class="{completed: todo.isCompleted}"
+                v-for="todo in filteredTodos"
+                :key="todo.id"
+                :list="todo.listId"
+                :id="todo.id"
+                :order="todo.order"
+                v-if="todo.listId === list.id"
+            >
+              <div class="flex space-sm v-center">
+                <div class="input-checkbox">
+                  <input type="checkbox" class="fake-check" :checked="todo.isCompleted" @change="updateTodoItem(todo.id, $event)">
                 </div>
-                <Tooltip class="align-right" :direction="'right'" :linkClass="'align-right'">
-                  <slot>
-                    <span>Ajouté par</span>
-                    <strong>{{ todo.user.data.displayName }}</strong>
-                    <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
-                  </slot>
-                </Tooltip>
+                <div class="todo-infos main">
+                  <div class="line-todo flex space-sm v-center" :class="{'is-editing': todo.isEditing}" @dragenter.prevent @dragleave.prevent @dragover.prevent>
+                    <label class="cursor-pointer" @click="editTodo(todo.id)">{{ todo.name }}</label>
+                    <div class="flex inline v-center" v-show="todo.dueDate">
+                      <span>et à finir avant le <strong>{{ moment(todo.dueDate) }}</strong></span>
+                      <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
+                      <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
+                    </div>
+                    <Tooltip class="align-right" :direction="'right'" :linkClass="'align-right'">
+                      <slot>
+                        <span>Ajouté par</span>
+                        <strong>{{ todo.user.data.displayName }}</strong>
+                        <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
+                      </slot>
+                    </Tooltip>
+                  </div>
+                  <div v-if="todo.isEditing" class="editing-form flex space-xxs v-center">
+                    <div class="main"><input :id="'name-' + todo.id" :value="todo.name" @keyup.enter="saveTodo(todo.id)" type="text"></div>
+                    <div><a href="#" v-on:click.stop.prevent="saveTodo(todo.id)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
+                    <div><a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a></div>
+                    <div><a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a></div>
+                  </div>
+                </div>
               </div>
-              <div v-if="todo.isEditing" class="editing-form flex space-xxs v-center">
-                <div class="main"><input :id="'name-' + todo.id" :value="todo.name" @keyup.enter="saveTodo(todo.id)" type="text"></div>
-                <div><a href="#" v-on:click.stop.prevent="saveTodo(todo.id)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
-                <div><a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a></div>
-                <div><a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a></div>
-              </div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </transition-group>
+        </draggable>
       </div>
     </section>
   </div>
@@ -83,6 +95,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import _ from 'lodash'
+import draggable from 'vuedraggable'
 import Datepicker from 'vuejs-datepicker'
 import Tooltip from 'components/Tooltip'
 import Dropdown from 'components/Dropdown'
@@ -93,6 +106,7 @@ export default {
   name: 'Todolist',
   components: {
     Datepicker,
+    draggable,
     Dropdown,
     Tooltip
   },
@@ -109,8 +123,7 @@ export default {
       type: null,
       showTopMenu: false,
       today: this.$moment().format(),
-      fr: fr,
-      dragging: -1
+      fr: fr
     }
   },
   computed: {
@@ -118,6 +131,9 @@ export default {
       'user',
       'getTodos'
     ]),
+    draggingInfo() {
+      return this.dragging ? "under drag" : "";
+    },
     AllTodos () {
       return this.getTodos.filter(todo => todo.listId === this.list.id)
     },
@@ -146,15 +162,6 @@ export default {
     })
   },
   methods: {
-    setEditingToFalse () {
-      this.getTodos.forEach(todo => {
-        db.collection('todos')
-            .doc(todo.id)
-            .update({
-              isEditing: false
-            })
-      })
-    },
     addTodo () {
       if (this.todo.name) {
         const order = this.getTodos.length
@@ -176,32 +183,6 @@ export default {
         this.$refs.alertRed.classList.remove('hide')
       }
 
-    },
-    setFilterType (type) {
-      this.type = type
-    },
-    clearCompleted () {
-      this.getTodos.forEach(todo => {
-        if (todo.isCompleted) {
-          db.collection('todos')
-            .doc(todo.id)
-            .delete()
-        }
-      })
-    },
-    moment (date) {
-      return this.$moment(date).format('DD/MM/YYYY')
-    },
-    itsToaday (todo) {
-      if (this.$moment(todo.dueDate).format('DD/MM/YYYY') === this.$moment(this.today).format('DD/MM/YYYY')) {
-        return true
-      }
-    },
-    getCountLeft (todo) {
-      if (todo.dueDate) {
-        const dueDate = this.$moment(todo.dueDate)
-        return dueDate.from(this.today)
-      }
     },
     updateTodoItem (docId, e) {
       e.target.closest('.todo').classList.toggle('completed')
@@ -232,7 +213,6 @@ export default {
     },
     saveTodo (docId) {
       const newText = document.getElementById('name-' + docId).value
-
       db.collection('todos')
           .doc(docId)
           .update({
@@ -252,64 +232,95 @@ export default {
         .doc(docId)
         .delete()
     },
-    dragStart(which, event) {
-      event.dataTransfer.dropEffect = 'move'
-      this.dragging = which;
-      event.target.classList.add('element')
+    setFilterType (type) {
+      this.type = type
     },
-    dragEnter(event) {
-      if(!event.target.classList.contains('element')) {
-        event.target.classList.add('is-target')
+    clearCompleted () {
+      this.getTodos.forEach(todo => {
+        if (todo.isCompleted) {
+          db.collection('todos')
+              .doc(todo.id)
+              .delete()
+        }
+      })
+    },
+    moment (date) {
+      return this.$moment(date).format('DD/MM/YYYY')
+    },
+    itsToaday (todo) {
+      if (this.$moment(todo.dueDate).format('DD/MM/YYYY') === this.$moment(this.today).format('DD/MM/YYYY')) {
+        return true
       }
     },
-    dragLeave(event) {
-      event.target.classList.remove('is-target')
+    getCountLeft (todo) {
+      if (todo.dueDate) {
+        const dueDate = this.$moment(todo.dueDate)
+        return dueDate.from(this.today)
+      }
     },
-    dragEnd() {
-      this.dragging = -1
-    },
-    dragFinish(to, event) {
-      this.moveItem(this.dragging, to);
-      event.target.classList.remove('is-target')
-    },
-    moveItem(from, to) {
-      if (from.id !== to.id) {
+    setEditingToFalse () {
+      this.getTodos.forEach(todo => {
         db.collection('todos')
-          .doc(from.id)
-          .update({
-            order: to.order
-          })
-        if (from.order < to.order) {
-          db.collection('todos')
-              .doc(to.id)
-              .update({
-                order: to.order - 1
-              })
+            .doc(todo.id)
+            .update({
+              isEditing: false
+            })
+      })
+    },
+    updateOrder: function(e) {
+      const listId = e.item.getAttribute('list')
+      const fromId = e.item.getAttribute('id')
+      const from = e.oldIndex + 1
+      const to = e.newIndex + 1
+      this.moveItem(listId, fromId, from, to)
+    },
+
+    moveItem(listId, fromId, from, to) {
+      if (from !== to) {
+        db.collection('todos')
+            .doc(fromId)
+            .update({
+              order: to
+            })
+        if (from < to) {
           this.getTodos.forEach(todo => {
-            if (todo.order !== to.order && todo.order !== from.order && from.order + 1 !== to.order) {
-              if (todo.order < to.order) {
+            if (todo.listId === listId) {
+              if (todo.order === to) {
                 db.collection('todos')
+                  .doc(todo.id)
+                  .update({
+                    order: to - 1
+                  })
+              }
+              if (todo.order !== from && from + 1 !== to) {
+                if (todo.order < to) {
+                  db.collection('todos')
                     .doc(todo.id)
                     .update({
                       order: todo.order - 1
                     })
+                }
               }
             }
           })
         } else {
-          db.collection('todos')
-              .doc(to.id)
-              .update({
-                order: to.order + 1
-              })
           this.getTodos.forEach(todo => {
-            if (todo.order !== to.order && todo.order !== from.order && from.order - 1 !== to.order) {
-              if (todo.order > to.order) {
+            if (todo.listId === listId) {
+              if (todo.order === to) {
                 db.collection('todos')
+                  .doc(todo.id)
+                  .update({
+                    order: to + 1
+                  })
+              }
+              if (todo.order !== from && from - 1 !== to) {
+                if (todo.order > to) {
+                  db.collection('todos')
                     .doc(todo.id)
                     .update({
                       order: todo.order + 1
                     })
+                }
               }
             }
           })
