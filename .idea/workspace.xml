@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="283c2c8d-6996-4fdd-aec4-00ed71c694a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/todo.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/todo.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_variables.sass" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/sass/base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/base.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Tooltip.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tooltip.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +38,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606118936318</updated>
-      <workItem from="1606118937633" duration="14732000" />
+      <workItem from="1606118937633" duration="15228000" />
     </task>
     <servers />
   </component>
@@ -54,10 +50,10 @@
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1826" y="90" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606134475491" />
-    <state x="663" y="238" width="585" height="564" key="find.popup" timestamp="1606129383763">
+    <state x="663" y="238" width="585" height="564" key="find.popup" timestamp="1606135242929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="663" y="238" width="585" height="564" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606129383763" />
+    <state x="663" y="238" width="585" height="564" key="find.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1606135242929" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1606125021532">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -41,7 +41,7 @@
             </slot>
           </Dropdown>
         </div>
-        <draggable @end="updateOrder" draggable=".todo">
+        <draggable @end="updateOrder" handle=".handle">
           <transition-group tag="ul" type="transition" :name="'task-list'" class="nls task-list">
             <li class="todo"
                 :class="{completed: todo.isCompleted}"
@@ -64,13 +64,16 @@
                       <span class="label-red m-left-xs" v-if="itsToaday(todo)">FAIS LE !!</span>
                       <span class="label-blue m-left-xs" v-else>{{ getCountLeft(todo) }}</span>
                     </div>
-                    <Tooltip class="align-right" :direction="'right'" :linkClass="'align-right'">
-                      <slot>
-                        <span>Ajouté par</span>
-                        <strong>{{ todo.user.data.displayName }}</strong>
-                        <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
-                      </slot>
-                    </Tooltip>
+                    <div class="align-right flex space-sm v-center">
+                      <Tooltip :direction="'right'" :linkClass="'align-right'">
+                        <slot>
+                          <span>Ajouté par</span>
+                          <strong>{{ todo.user.data.displayName }}</strong>
+                          <span>le <strong>{{ moment(todo.createdAt) }}</strong></span>
+                        </slot>
+                      </Tooltip>
+                      <i class="fa fa-align-justify font-sm violet-lighter handle"></i>
+                    </div>
                   </div>
                   <div v-if="todo.isEditing" class="editing-form flex space-xxs v-center">
                     <div class="main"><input :id="'name-' + todo.id" :value="todo.name" @keyup.enter="saveTodo(todo.id)" type="text"></div>

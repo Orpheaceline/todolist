@@ -1,6 +1,6 @@
 <template>
   <div class="tooltip" :class="direction">
-    <span :class="linkClass" @click="showTooltip()"><i class="fa fa-info fa-circle-violet-light"></i></span>
+    <span :class="linkClass" @click="showTooltip()"><i class="fa fa-info fa-circle-violet-light medium"></i></span>
     <div class="tooltip-content" :class="{'hide': !show}">
       <slot />
     </div>
