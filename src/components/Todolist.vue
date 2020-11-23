@@ -271,65 +271,16 @@ export default {
       })
     },
     updateOrder: function(e) {
-      const listId = e.item.getAttribute('list')
-      const fromId = e.item.getAttribute('id')
-      const from = e.oldIndex + 1
-      const to = e.newIndex + 1
-      this.moveItem(listId, fromId, from, to)
-    },
-
-    moveItem(listId, fromId, from, to) {
-      if (from !== to) {
+      e.to.children.forEach((todo, index) => {
+        const docId = todo.getAttribute('id')
+        const newOrder = index + 1
         db.collection('todos')
-            .doc(fromId)
-            .update({
-              order: to
-            })
-        if (from < to) {
-          this.getTodos.forEach(todo => {
-            if (todo.listId === listId) {
-              if (todo.order === to) {
-                db.collection('todos')
-                  .doc(todo.id)
-                  .update({
-                    order: to - 1
-                  })
-              }
-              if (todo.order !== from && from + 1 !== to) {
-                if (todo.order < to) {
-                  db.collection('todos')
-                    .doc(todo.id)
-                    .update({
-                      order: todo.order - 1
-                    })
-                }
-              }
-            }
+          .doc(docId)
+          .update({
+            order: newOrder
           })
-        } else {
-          this.getTodos.forEach(todo => {
-            if (todo.listId === listId) {
-              if (todo.order === to) {
-                db.collection('todos')
-                  .doc(todo.id)
-                  .update({
-                    order: to + 1
-                  })
-              }
-              if (todo.order !== from && from - 1 !== to) {
-                if (todo.order > to) {
-                  db.collection('todos')
-                    .doc(todo.id)
-                    .update({
-                      order: todo.order + 1
-                    })
-                }
-              }
-            }
-          })
-        }
-      }
-    }
+      })
+    },
   }
 }
 </script>

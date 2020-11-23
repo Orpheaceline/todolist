@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="283c2c8d-6996-4fdd-aec4-00ed71c694a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/_variables.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/_variables.sass" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/sass/base.sass" beforeDir="false" afterPath="$PROJECT_DIR$/assets/sass/base.sass" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Todolist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Todolist.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Tooltip.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Tooltip.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +35,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606118936318</updated>
-      <workItem from="1606118937633" duration="15228000" />
+      <workItem from="1606118937633" duration="16245000" />
     </task>
     <servers />
   </component>
