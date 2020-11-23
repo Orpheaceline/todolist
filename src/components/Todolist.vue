@@ -63,8 +63,8 @@
                 </Tooltip>
               </div>
               <div v-if="todo.isEditing" class="editing-form flex space-xxs v-center">
-                <div class="main"><input ref="newText" :value="todo.name" @keyup.enter="saveTodo(todo.id, $event)" type="text"></div>
-                <div><a href="#" v-on:click.stop.prevent="saveTodo(todo.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
+                <div class="main"><input :id="'name-' + todo.id" :value="todo.name" @keyup.enter="saveTodo(todo.id)" type="text"></div>
+                <div><a href="#" v-on:click.stop.prevent="saveTodo(todo.id)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
                 <div><a href="#" v-on:click.stop.prevent="cancelEditTodo(todo.id)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a></div>
                 <div><a href="#" v-on:click.stop.prevent="deleteToDo(todo.id)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a></div>
               </div>
@@ -231,7 +231,8 @@ export default {
       })
     },
     saveTodo (docId) {
-      const newText = this.$refs.newText.value
+      const newText = document.getElementById('name-' + docId).value
+
       db.collection('todos')
           .doc(docId)
           .update({

@@ -64,8 +64,7 @@ export default new Vuex.Store({
         commit('setUser', {
           displayName: user.displayName,
           email: user.email,
-          uid: user.uid,
-          role: 'Writer'
+          uid: user.uid
         })
       }
     },

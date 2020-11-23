@@ -26,7 +26,7 @@
           <p class="violet text-center no-m">Bienvenue sur cette application de Todolist. Cette espace est réservé aux membres.</p>
           <div class="text-center m-top-md">
             <Login name="Home"/>
-            <router-link to="register" class="m-top-xs in-block">S'inscrire</router-link>
+<!--            <router-link to="register" class="m-top-xs in-block">S'inscrire</router-link>-->
           </div>
         </div>
       </div>
@@ -74,10 +74,10 @@ export default {
     setEditingToFalse () {
       this.getTodos.forEach(todo => {
         db.collection('todos')
-            .doc(todo.id)
-            .update({
-              isEditing: false
-            })
+          .doc(todo.id)
+          .update({
+            isEditing: false
+          })
       })
     },
     showTab (e) {

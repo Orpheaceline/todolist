@@ -7,10 +7,10 @@
       </show-at>
       <div class="container text-center m-top-sm">
         <div class="flex space-xs">
-          <div><input type="text" class="input-icon" placeholder="Choisissez une icone" v-model="list.icon" /></div>
+          <div><input type="text" class="input-icon" placeholder="Choisissez une icone" v-model="list.icon" @keyup.enter="ManageList" /></div>
           <div class="main"><input type="text" placeholder="Ajouter une liste" v-model="list.name" @keyup.enter="ManageList" class="full-width"/></div>
         </div>
-        <p><a href="https://fontawesome.com/icons?d=gallery&s=regular&m=free" target="_blank">Voir les icones disponibles <i class="fa fa-angle-right"></i></a></p>
+        <p><a href="https://fontawesome.com/icons?d=gallery&m=free" target="_blank">Voir les icones disponibles <i class="fa fa-angle-right"></i></a></p>
         <ul class="nls list-todo m-top-lg">
           <li class="m-top-sm list-line flex v-center" :class="{'is-editing': list.isEditing}" v-for="list in getLists" :key="list.id" draggable="true" @dragstart="dragStart(list, $event)" @dragover.prevent @dragenter="dragEnter" @dragleave="dragLeave" @dragend="dragEnd" @drop="dragFinish(list, $event)">
             <div>
@@ -30,10 +30,10 @@
             </div>
             <div v-if="list.isEditing" class="editing-form">
               <div class="flex space-xxs">
-                <div><input :id="'icon-' + list.id" class="input-icon" :value="list.icon" type="text" style="width:85px"></div>
+                <div><input :id="'icon-' + list.id" class="input-icon" :value="list.icon" type="text" @keyup.enter="saveList(list.id)" style="width:85px"></div>
                 <div class="main flex space-xxs">
-                  <div class="main"><input :id="'name-' + list.id" class="full-width" :value="list.name" type="text"></div>
-                  <div><a href="" v-on:click.stop.prevent="saveList(list.id, $event)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
+                  <div class="main"><input :id="'name-' + list.id" class="full-width" :value="list.name" type="text" @keyup.enter="saveList(list.id)"></div>
+                  <div><a href="" v-on:click.stop.prevent="saveList(list.id)" class="btn-violet btn-rounded"><i class="fa fa-check"></i></a></div>
                   <div><a href="" v-on:click.stop.prevent="cancelEditList(list.id, $event)" class="btn-grey btn-rounded"><i class="fa fa-times"></i></a></div>
                   <div><a href="" v-on:click.stop.prevent="deleteList(list.id, $event)" class="btn-red btn-rounded"><i class="fa fa-trash"></i></a></div>
                 </div>
@@ -105,6 +105,8 @@ export default {
         isEditing: false,
         user: this.user
       })
+      this.list.name = ''
+      this.list.icon = ''
     },
     editList (docId) {
       this.getLists.forEach(list => {

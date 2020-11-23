@@ -22,14 +22,14 @@ Vue.config.productionTip = false
 Vue.use(VueFilterPluralize)
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB2AviDch6GfmKnCuU3AWuWuznBBLaL20o',
-  authDomain: 'todolist-vuejs-57c33.firebaseapp.com',
-  databaseURL: 'https://todolist-vuejs-57c33.firebaseio.com',
-  projectId: 'todolist-vuejs-57c33',
-  storageBucket: 'todolist-vuejs-57c33.appspot.com',
-  messagingSenderId: '217132079331',
-  appId: '1:217132079331:web:bea7411d86a158801f8dd6',
-  measurementId: 'G-5MEV54EHYC'
+  apiKey: 'AIzaSyDJ_KAAdhEwPPgkmFnNnzDsbkIDRwpRCkU',
+  authDomain: 'todolist-80064.firebaseapp.com',
+  databaseURL: 'https://todolist-80064.firebaseio.com',
+  projectId: 'todolist-80064',
+  storageBucket: 'todolist-80064.appspot.com',
+  messagingSenderId: '41532131486',
+  appId: '1:41532131486:web:47da008d6a4753c041538f',
+  measurementId: 'G-F71D5N44TH'
 }
 
 firebase.initializeApp(firebaseConfig)
