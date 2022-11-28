@@ -21,6 +21,7 @@
                   <span v-show="list.name === 'Watch List'">{{ activeTodos.length | pluralize('fr', ['Il y a un film ou une série à regarder.', 'Il y a ' + activeTodos.length + ' films / séries à regarder.']) }}</span>
                   <span v-show="list.name === 'Shopping List'">{{ activeTodos.length | pluralize('fr', ['Il y a une chose à acheter en course.', 'Il y a ' + activeTodos.length + ' choses à acheter en course.']) }}</span>
                   <span v-show="list.name === 'Vrac List'">{{ activeTodos.length | pluralize('fr', ['Il y a une chose à acheter en vrac.', 'Il y a ' + activeTodos.length + ' choses à acheter en vrac.']) }}</span>
+                  <span v-show="list.name === 'A vendre'">{{ activeTodos.length | pluralize('fr', ['Il y a une chose à vendre.', 'Il y a ' + activeTodos.length + ' choses à vendre.']) }}</span>
                 </template>
                 <template v-else>
                   <span>Cette liste est vide.</span>

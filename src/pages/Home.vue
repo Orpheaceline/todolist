@@ -5,7 +5,7 @@
       <h1 class="logo m-top-md"><span>Ma Todo Liste</span></h1>
     </show-at>
     <section v-if="user.loggedIn" class="container">
-      <ul class="nls menu-tab flex sm-5 space-sm-min-sm space-xs-max-sm space-xxs-max-xs m-top-md m-bottom-md h-center">
+      <ul class="nls menu-tab flex sm-4 space-sm-min-sm space-xs-max-sm space-xxs-max-xs m-top-md m-bottom-md h-center">
         <li v-for="(list, index) in getLists" :key="list.id" class="list-todo flex">
           <a :href="'todo-' + list.id" class="no-p flex v-center" :class="{ 'active': index === 0 }" v-on:click.stop.prevent="showTab($event)">
             <span class="icon">
@@ -81,18 +81,20 @@ export default {
       })
     },
     showTab (e) {
-      const target = e.currentTarget.getAttribute('href')
-      const allLink = e.target.closest('.menu-tab').getElementsByTagName('a')
-      const allTab = this.$refs.Tab
+      let target = e.currentTarget.getAttribute('href')
+      let allLink = document.querySelectorAll(".menu-tab a")
+      let allTab = this.$refs.Tab
 
       this.setEditingToFalse()
+
+      allTab.forEach((element) => {
+        element.classList.add('hide')
+      })
 
       allLink.forEach((element) => {
         element.classList.remove('active')
       })
-      allTab.forEach((element) => {
-        element.classList.add('hide')
-      })
+
       e.currentTarget.classList.add('active')
       document.getElementById(target).classList.remove('hide')
     }
